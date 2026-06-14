@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>Before After Demo</title>
+  <style>
+    @page{size:A4 landscape;margin:12mm}*{box-sizing:border-box}body{font-family:Arial,'Malgun Gothic',sans-serif;margin:0;color:#111827;background:#fff}h1{font-size:30px;margin:0 0 14px}.lead{color:#526173;margin-bottom:18px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{border:1px solid #dbe3eb;border-radius:12px;padding:18px;min-height:440px}.bad{background:#fff7f7;border-color:#f0b8b8}.good{background:#f6fff9;border-color:#a7ddb8}.label{font-size:13px;font-weight:900;letter-spacing:.04em;margin-bottom:12px}.bad .label{color:#b42318}.good .label{color:#087443}pre{white-space:pre-wrap;background:#101827;color:#eef6ff;border-radius:10px;padding:12px;font-size:13px}.list{display:grid;gap:8px;margin-top:14px}.item{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:9px}.score{margin-top:18px;border-top:1px solid #e5e7eb;padding-top:14px;font-weight:800}
+  </style>
+</head>
+<body>
+  <h1>Before / After: 같은 “자동화” 요청, 완전히 다른 결과</h1>
+  <p class="lead">차이는 도구가 아니라 업무를 맡기는 구조다. 입력, 출력, 사람 경계, 테스트, 실패복구가 없으면 AI 자동화는 껍데기로 끝난다.</p>
+  <section class="cols">
+    <article class="panel bad">
+      <div class="label">BEFORE — 흔한 지시</div>
+      <pre>내 이메일 답장 자동화 만들어줘.</pre>
+      <div class="list">
+        <div class="item">입력 이메일 유형이 없다.</div>
+        <div class="item">답장 초안인지 실제 발송인지 모른다.</div>
+        <div class="item">Gmail/Docs/Sheets 중 결과 위치가 없다.</div>
+        <div class="item">사람 확인 경계와 테스트 입력이 없다.</div>
+        <div class="item">실패하면 무엇을 고칠지 없다.</div>
+      </div>
+      <div class="score">판정: 껍데기 위험 높음</div>
+    </article>
+    <article class="panel good">
+      <div class="label">AFTER — 운영팩 지시</div>
+      <pre>내 고객 이메일 처리 업무를 자동화 가능한 하나의 흐름으로 좁혀라.
+입력, 반복주기, 판단 기준, 결과물, 저장 위치, 사람이 확인할 경계, 실패하면 큰 문제인 부분을 표로 채워라.
+정상/정보부족/민감 요청 테스트 입력 3개와 예상 결과를 보여라.</pre>
+      <div class="list">
+        <div class="item">입력: 고객 문의 이메일</div>
+        <div class="item">출력: 분류 + 답장 초안</div>
+        <div class="item">저장: Gmail Draft 또는 Docs</div>
+        <div class="item">사람 경계: 발송 전, 환불/불만/민감정보</div>
+        <div class="item">실패복구: 판단 기준/출력 형식/도구 연결 수정</div>
+      </div>
+      <div class="score">판정: 첫 테스트 가능</div>
+    </article>
+  </section>
+</body>
+</html>
+
