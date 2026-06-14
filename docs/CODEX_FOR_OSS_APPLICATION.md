@@ -28,6 +28,10 @@ Early-stage OSS toolkit that helps non-developers and solo operators avoid empty
 - Codex Security
 - API credits for the project
 
+## Codex Security reason
+
+Codex Security would help review workflow examples and validation scripts for unsafe automation patterns, secret leakage, and misleading fake-complete workflows before users copy them into real agent projects.
+
 ## API credit use
 
 Use Codex/OpenAI API credits to maintain the pack: review workflow examples, test no-shell scorecards, automate issue triage, generate release checks, improve multilingual docs, and build evaluation traces that catch fake-complete automation before release.
@@ -35,3 +39,8 @@ Use Codex/OpenAI API credits to maintain the pack: review workflow examples, tes
 ## Anything else
 
 This is an early public project, not yet a broad-adoption repo. The value is ecosystem-facing: it turns agent use into checkable workflows for non-developers, with explicit validation and recovery instead of shallow prompt examples.
+
+## Submission status
+
+- Submitted: 2026-06-15 (Asia/Seoul)
+- Confirmation observed: OpenAI page displayed "제출해 주셔서 감사합니다. 접수된 내용을 검토한 뒤 선정될 경우 별도로 연락을 드리겠습니다."
