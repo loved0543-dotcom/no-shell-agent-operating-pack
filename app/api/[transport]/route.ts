@@ -24,7 +24,7 @@ const handler = createMcpHandler(
       'design_automation_stack',
       {
         title: 'Design Automation Stack',
-        description: 'Turn a vague automation request into a tool/MCP/plugin/skill stack, workflow phases, validation pack, and human boundary.',
+        description: 'Turn a vague automation request into a tool/MCP/plugin/skill stack, permissioned account route, workflow phases, validation pack, and live-action boundary.',
         inputSchema: architectSchema
       },
       async (args) => ({
@@ -48,7 +48,7 @@ const handler = createMcpHandler(
       'recommend_agent_tools',
       {
         title: 'Recommend Agent Tools',
-        description: 'Recommend MCP servers, Codex plugins, skills, and manual boundaries for a requested automation.',
+        description: 'Recommend MCP servers, Codex plugins, skills, permissioned account routes, and live-action boundaries for a requested automation.',
         inputSchema: architectSchema
       },
       async (args) => ({

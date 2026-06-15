@@ -60,7 +60,7 @@ Stdio-only clients can use `mcp-remote`:
 Name: No-Shell Agent Architect MCP
 
 Description:
-Turns vague automation requests into tool stacks, prompts, QA checks, and human boundaries.
+Turns vague automation requests into tool stacks, permissioned account routes, prompts, QA checks, and live-action boundaries.
 
 Repository:
 https://github.com/loved0543-dotcom/no-shell-agent-operating-pack

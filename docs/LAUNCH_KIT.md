@@ -24,17 +24,17 @@ Use the canonical URL in every new post, directory listing, screenshot, and clie
 
 Most agent automation fails before the first tool call. The user says "automate this", and the agent builds files or UI that look done but do not complete the real workflow.
 
-No-Shell Agent Architect MCP is the pre-execution router: it turns one vague automation request into the practical tool stack, copy-paste command, dry-run, QA/audit checks, recovery path, and human boundary. It is currently free to test while usage signals and feedback are collected.
+No-Shell Agent Architect MCP is the pre-execution router: it turns one vague automation request into the practical tool stack, copy-paste command, permissioned account route, dry-run, QA/audit checks, recovery path, and live-action boundary. It is currently free to test while usage signals and feedback are collected.
 
 ## Short Descriptions
 
 ### 100 characters
 
-Turns vague automation requests into tool stacks, prompts, QA checks, and human boundaries.
+Turns vague automation requests into tool stacks, prompts, permissioned account routes, QA checks, and live-action boundaries.
 
 ### 240 characters
 
-A remote MCP for people who use AI agents but keep getting empty-shell automations. It routes a vague workflow into tools, a copy-paste command, dry-run steps, QA checks, recovery, and human boundaries before the agent builds.
+A remote MCP for people who use AI agents but keep getting empty-shell automations. It routes a vague workflow into tools, a copy-paste command, permissioned account route, dry-run steps, QA checks, recovery, and live-action boundaries before the agent builds.
 
 ### One paragraph
 
@@ -56,7 +56,7 @@ It takes a plain-language automation goal and returns:
 - dry-run steps;
 - QA and audit checks;
 - recovery guidance;
-- human boundaries for secrets, accounts, payments, publishing, and irreversible actions.
+- permissioned account routes and live-action boundaries for secrets, accounts, payments, publishing, and irreversible actions.
 
 ### First comment
 
@@ -78,7 +78,7 @@ Post:
 
 I kept seeing the same failure pattern in AI automation: people ask an agent to "automate this", and the result is a file, button, or dashboard that looks finished but does not run the real workflow.
 
-So I made a small remote MCP/API that sits before execution. It takes one plain-language automation goal and returns the missing operating pieces: tool route, copy-paste command, dry-run, QA checks, recovery path, and human boundary.
+So I made a small remote MCP/API that sits before execution. It takes one plain-language automation goal and returns the missing operating pieces: tool route, permissioned account route, copy-paste command, dry-run, QA checks, recovery path, and live-action boundary.
 
 Live demo: https://ai-automation-operating-pack.vercel.app
 
@@ -110,7 +110,7 @@ The tool takes a plain-language goal and returns the missing parts before execut
 - dry-run steps;
 - QA/audit checks;
 - recovery path;
-- human boundary for accounts, secrets, payments, publishing, or irreversible actions.
+- permissioned account route and live-action boundary for accounts, secrets, payments, publishing, or irreversible actions.
 
 Live: https://ai-automation-operating-pack.vercel.app
 
@@ -126,7 +126,7 @@ I launched a free public beta remote MCP for a common agent failure:
 "Automate this" -> agent builds files/UI -> workflow still does not actually work.
 
 No-Shell Agent Architect routes the job first:
-tools, prompt, dry-run, QA, recovery, human boundary.
+tools, prompt, permissioned account route, dry-run, QA, recovery, live-action boundary.
 
 https://ai-automation-operating-pack.vercel.app
 
@@ -151,7 +151,7 @@ No-Shell Agent Architect MCP tries to solve the step before execution. It turns 
 - dry-run plan;
 - QA/audit checks;
 - recovery path;
-- human boundary for secrets, accounts, payments, publishing, and irreversible actions.
+- permissioned account route and live-action boundary for secrets, accounts, payments, publishing, and irreversible actions.
 
 Live demo: https://ai-automation-operating-pack.vercel.app
 Source: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
@@ -162,7 +162,7 @@ Feedback welcome, especially from people building agent workflows for non-develo
 
 Name: No-Shell Agent Architect MCP
 
-Description: Turns vague automation requests into tool stacks, prompts, QA checks, and human boundaries.
+Description: Turns vague automation requests into tool stacks, prompts, permissioned account routes, QA checks, and live-action boundaries.
 
 Category: AI automation, agent tooling, MCP server, workflow planning
 
@@ -188,10 +188,10 @@ Demo: https://ai-automation-operating-pack.vercel.app
 - [x] Compatibility alias refreshed for old links
 - [x] Production contract monitor workflow
 - [x] Free public beta copy
-- [ ] Product Hunt post by logged-in maker
-- [ ] Hacker News Show HN post by logged-in account
-- [ ] Reddit/community posts only where rules allow self-promotion
-- [ ] LinkedIn/X post by owner account
+- [ ] Product Hunt post by logged-in maker or approved connector
+- [ ] Hacker News Show HN post by logged-in account or approved browser session
+- [ ] Reddit/community posts only where rules allow self-promotion and the destination is allowlisted
+- [ ] LinkedIn/X post by owner account or approved connector
 - [ ] Glama/Smithery/PulseMCP listing check or submission
 
 ## Pre-Post Verification
@@ -215,13 +215,13 @@ Expected:
 - Product Hunt: prepare tagline, description, media, maker comment, and launch page assets before submitting. Source: https://www.producthunt.com/launch/preparing-for-launch
 - Reddit: do not use Reddit as a pure self-promotion channel; post where rules allow it, disclose clearly, and participate beyond your own links. Source: https://www.reddit.com/r/reddit.com/wiki/selfpromotion/
 
-## Manual Posting Links
+## Permissioned Posting Links
 
 - Hacker News submit: https://news.ycombinator.com/submit
 - Product Hunt launch: https://www.producthunt.com/launch
 - Reddit: choose the exact subreddit first and read its rules before posting.
 
-Do not auto-post from automation. These links require the owner's logged-in account and a final community-rule check.
+Do not bypass login, 2FA, cookies, or community rules. Posting can be automated only through an approved API, connector, or logged-in browser session with an allowlisted destination, draft/staging mode, an action ledger, and an exact live-action instruction after the final community-rule check.
 
 ## Signals To Watch
 

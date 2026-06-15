@@ -16,6 +16,14 @@ type ArchitectResult = {
     audit_checks?: string[];
     pass_definition?: string;
   };
+  account_automation?: {
+    status?: string;
+    safe_default?: string;
+    connector_route?: string;
+    automatable_actions?: string[];
+    required_controls?: string[];
+    draft_vs_live?: string;
+  };
   copy_paste_prompt?: string;
   status?: string;
 };
@@ -54,13 +62,14 @@ export default function ArchitectClient() {
   const phases = result?.execution_phases ?? [];
   const dryRun = result?.validation?.dry_run_tests ?? [];
   const qa = result?.validation?.qa_checks ?? [];
+  const accountAutomation = result?.account_automation;
 
   return (
     <section className="tool" id="architect">
       <div className="tool-copy">
         <p className="eyebrow">Live API preview</p>
         <h2>Describe one workflow.</h2>
-        <p>The response is deterministic and free: no external model call, no secret, no account action.</p>
+        <p>The response is deterministic and free: no external model call, no secret, no unpermissioned account action.</p>
       </div>
       <form className="panel" onSubmit={run}>
         <textarea value={goal} onChange={(event) => setGoal(event.target.value)} />
@@ -87,6 +96,16 @@ export default function ArchitectClient() {
               <strong>QA before PASS</strong>
               <ul>{[...dryRun.slice(0, 3), ...qa.slice(0, 3)].map((check) => <li key={check}>{check}</li>)}</ul>
             </article>
+            {accountAutomation?.status === 'permissioned_connector_required' && (
+              <article className="checks">
+                <strong>Permissioned account automation</strong>
+                <ul>
+                  <li>{accountAutomation.connector_route}</li>
+                  <li>{accountAutomation.safe_default}</li>
+                  <li>{accountAutomation.draft_vs_live}</li>
+                </ul>
+              </article>
+            )}
             {result.copy_paste_prompt && (
               <details>
                 <summary>Copy-paste command</summary>

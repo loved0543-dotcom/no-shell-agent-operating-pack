@@ -17,8 +17,8 @@ export default function Page() {
           <p className="eyebrow">Free public beta · Remote MCP + API for practical AI automation design</p>
           <h1>Turn “automate this” into a real agent workflow.</h1>
           <p className="lead">
-            Most agent requests fail because they skip tool routing, inputs, human boundaries, and QA. This MCP returns
-            the stack, command, dry-run path, validation checks, and recovery plan before an agent builds another empty shell.
+            Most agent requests fail because they skip tool routing, inputs, permissioned account routes, human boundaries, and QA. This MCP returns
+            the stack, command, permissioned account route, dry-run path, validation checks, and recovery plan before an agent builds another empty shell.
           </p>
           <div className="cta-row">
             <a className="button" href="#architect">Try the architect</a>
@@ -39,7 +39,7 @@ export default function Page() {
         <div>
           <span>Output</span>
           <b>Tool stack + prompt</b>
-          <p>Installed plugin/MCP/skill route, copy-paste command, dry-run, QA, and boundary.</p>
+          <p>Installed plugin/MCP/skill route, permissioned connector plan, copy-paste command, dry-run, QA, and boundary.</p>
         </div>
         <div>
           <span>Standard</span>
@@ -61,7 +61,7 @@ export default function Page() {
           {[
             ['design_automation_stack', 'Route a vague workflow into a concrete automation architecture.'],
             ['generate_no_shell_prompt', 'Create a copy-paste command for Codex, Claude, Gemini, or another agent.'],
-            ['recommend_agent_tools', 'Choose plugins, MCPs, skills, and manual boundaries for the job.'],
+            ['recommend_agent_tools', 'Choose plugins, MCPs, skills, permissioned account routes, and live-action boundaries for the job.'],
             ['audit_automation_plan', 'Score an existing plan for shell-risk and missing execution pieces.'],
             ['build_validation_pack', 'Return dry-run, QA, audit, and PASS criteria.'],
             ['build_customer_intake', 'Generate a 10-minute intake for non-developers.']

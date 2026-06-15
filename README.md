@@ -2,7 +2,7 @@
 
 An open-source operating pack for people who already use AI agents but keep getting "empty-shell automation": files, buttons, or dashboards that look finished but do not actually run a real workflow.
 
-This is not a prompt-pack that promises magic. It is a plain-language operating system for delegating work to ChatGPT, Claude, Codex, Gemini, Hermes, and similar agents with a real objective, inputs, tool choice, validation, recovery, and human boundary.
+This is not a prompt-pack that promises magic. It is a plain-language operating system for delegating work to ChatGPT, Claude, Codex, Gemini, Hermes, and similar agents with a real objective, inputs, tool choice, permissioned account route, validation, recovery, and live-action boundary.
 
 ## No-Shell Agent Architect MCP
 
@@ -17,7 +17,7 @@ It takes a plain-language automation goal and returns:
 - dry-run steps;
 - QA and audit checks;
 - recovery guidance;
-- human boundaries for secrets, accounts, payments, publishing, and irreversible actions.
+- permissioned account routes and live-action boundaries for secrets, accounts, payments, publishing, and irreversible actions.
 
 Local API preview:
 
@@ -94,7 +94,7 @@ Client config:
 - Free beta starter pack: Email and document automation workflow.
 - Before/After demo: a shallow command vs a no-shell operating command.
 - Customer intake sheet.
-- Tool/router sheet for choosing agents, plugins, skills, MCP, browser, documents, spreadsheets, or manual review.
+- Tool/router sheet for choosing agents, plugins, skills, MCP, browser, documents, spreadsheets, permissioned account connectors, or live-action review.
 - Copy-paste command cards written in natural language.
 - Result scorecard for catching fake completion.
 - Recovery playbook: fix the upstream cause instead of stopping at one more gate.
@@ -154,7 +154,7 @@ This checks the canonical URL, compatibility URL, MCP `tools/list`, and the offi
 
 Launch copy, community drafts, Product Hunt copy, Show HN copy, Reddit/LinkedIn/X drafts, and directory submission text live in `docs/LAUNCH_KIT.md`.
 
-Public posting is intentionally manual. Use the drafts, then post from the owner's logged-in account after checking each community's rules.
+Public posting is not a bypass. It may be automated only through an approved API, connector, or logged-in browser session with an allowlisted destination, draft/staging mode, an action ledger, and an exact live-action instruction after checking each community's rules.
 
 ## Operations
 
@@ -164,7 +164,7 @@ Deployment, monitoring, compatibility alias recovery, and post-deploy checks are
 
 This repository is public, open source, and free to use as a public beta. It is early-stage and still needs real external validation. The product is complete enough to show to users, but demand is not proven until public usage signals and the validation trackers have real responses.
 
-No payment connection, storefront publish, account login, secret, or private customer data is included in this repository. Future paid packaging is intentionally postponed until there is clear usage and feedback.
+No payment connection, storefront publish, customer credential, secret, or private customer data is included in this repository. The product describes permissioned connector architecture, not stored account access. Future paid packaging is intentionally postponed until there is clear usage and feedback.
 
 ## License
 

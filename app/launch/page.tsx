@@ -14,8 +14,8 @@ export default function LaunchPage() {
         <h1>No-Shell Agent Architect MCP is free to test.</h1>
         <p className="lead">
           A free remote MCP that turns a vague automation request into a concrete tool stack, copy-paste agent command,
-          dry-run plan, QA checks, recovery route, and human boundary. No payment flow is active; stars, issues, and
-          workflow feedback decide what should become paid later.
+          permissioned account route, dry-run plan, QA checks, recovery route, and live-action boundary. No payment flow
+          is active; stars, issues, and workflow feedback decide what should become paid later.
         </p>
         <div className="cta-row">
           <a className="button" href="/">Try the live architect</a>
@@ -58,8 +58,8 @@ export default function LaunchPage() {
         <h2>Short launch copy</h2>
         <p>
           I built a remote MCP for people who know agents can automate work, but keep getting code or dashboards that
-          look done and do not actually run the workflow. It returns the tool route, command, dry-run, QA checks, and
-          human boundary before the agent starts building.
+          look done and do not actually run the workflow. It returns the tool route, permissioned account route, command,
+          dry-run, QA checks, recovery route, and live-action boundary before the agent starts building.
         </p>
       </section>
     </main>

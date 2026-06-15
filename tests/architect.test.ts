@@ -19,7 +19,30 @@ describe('No-Shell Agent Architect', () => {
   it('generates a non-empty copy-paste prompt', () => {
     const result = generateNoShellPrompt({ goal: 'Automate Gmail follow-up and create a weekly report.' });
     expect(result.prompt).toContain('목표:');
+    expect(result.prompt).toContain('권한형 계정 자동화');
     expect(result.prompt).toContain('완료 보고');
+  });
+
+  it('models Gmail workflows as permissioned account automation, not manual-only gates', () => {
+    const plan = designAutomationStack({ goal: 'Read new Gmail messages from a support label and draft replies.' });
+    expect(plan.interpreted_domain).toBe('email_docs');
+    expect(plan.recommended_stack.some((item) => item.id === 'gmail')).toBe(true);
+    expect(plan.recommended_stack.some((item) => item.id === 'permissioned-account-automation')).toBe(true);
+    expect(plan.account_automation.status).toBe('permissioned_connector_required');
+    expect(plan.validation.dry_run_tests.join(' ')).toContain('permissioned connector');
+    expect(plan.human_boundaries.join(' ')).toContain('permissioned connector');
+  });
+
+  it('splits community posting into staged automation and exact live action', () => {
+    const plan = designAutomationStack({
+      goal: 'Prepare and post launch updates to Reddit, LinkedIn, and Hacker News.',
+      risk: 'high'
+    });
+    expect(plan.interpreted_domain).toBe('social_content');
+    expect(plan.recommended_stack.some((item) => item.id === 'permissioned-account-automation')).toBe(true);
+    expect(plan.account_automation.draft_vs_live).toContain('exact destination/action');
+    expect(plan.human_boundaries.join(' ')).toContain('allowlisted destination');
+    expect(plan.validation.qa_checks.join(' ')).toContain('community posting');
   });
 
   it('audits weak shell plans', () => {

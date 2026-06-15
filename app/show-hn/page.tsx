@@ -12,7 +12,7 @@ export default function ShowHnPage() {
         <p className="lead">
           The failure pattern I kept seeing: people ask an agent to automate work, and it creates files, buttons, or a
           dashboard that looks finished but does not run the real workflow. This MCP sits before execution and returns
-          the missing pieces: tool route, copy-paste command, dry-run, QA checks, recovery path, and human boundary.
+          the missing pieces: tool route, permissioned account route, copy-paste command, dry-run, QA checks, recovery path, and live-action boundary.
         </p>
         <div className="cta-row">
           <a className="button" href="/">Try it</a>
