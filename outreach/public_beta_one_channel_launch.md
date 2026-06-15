@@ -61,6 +61,7 @@ timestamp,connector,mode,allowed_scope,target_id_or_url,draft_or_staged_artifact
 2026-06-15T12:25:00Z,community,staged_draft,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,staged_not_posted,no,Owner logs in to HN and approves final title/body before submit
 2026-06-15T12:44:00Z,community,ready_for_owner_login,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,rule_check_passed_chrome_extension_disabled,no,Enable Codex Chrome Extension or manually submit after HN login
 2026-06-15T14:12:00Z,community,chrome_session_autonomy_retry,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,chrome_pages_opened_but_automation_unavailable,no,Codex Chrome Extension must be enabled and plugin native host repaired, or owner submits from the opened Chrome tab
+2026-06-15T14:15:00Z,community,owner_hn_login_completed,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,owner_logged_in_but_codex_chrome_control_still_unavailable,no,Enable/repair Codex Chrome Extension control surface or submit from opened Chrome tab
 ```
 
 ## Why Not Post Automatically Here
