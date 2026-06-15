@@ -130,6 +130,19 @@ export const CATALOG: CatalogEntry[] = [
 ];
 
 export function domainFromGoal(goal: string, explicit?: string): Domain {
+  const explicitDomain = (explicit ?? '').toLowerCase().trim();
+  const knownDomains: Domain[] = [
+    'email_docs',
+    'research_reporting',
+    'social_content',
+    'ecommerce_data',
+    'knowledge_base',
+    'browser_ops',
+    'coding',
+    'custom'
+  ];
+  if (knownDomains.includes(explicitDomain as Domain)) return explicitDomain as Domain;
+
   const raw = `${explicit ?? ''} ${goal}`.toLowerCase();
   if (/mail|gmail|email|inbox|follow-up|doc|document|contract|proposal|invoice|word/.test(raw)) return 'email_docs';
   if (/research|report|brief|market|analysis|data|spreadsheet|csv|sheet/.test(raw)) return 'research_reporting';

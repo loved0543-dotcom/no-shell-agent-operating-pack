@@ -29,6 +29,9 @@ REQUIRED = [
     "docs/OPERATIONS.md",
     "docs/_evidence/no-shell-agent-architect-mcp.md",
     "docs/MCP_REGISTRATION.md",
+    "delivery/06_permissioned_connector_v1.md",
+    "outreach/dogfood_public_beta_ops.md",
+    "outreach/public_beta_one_channel_launch.md",
     ".github/workflows/monitor-production.yml",
     ".github/ISSUE_TEMPLATE/workflow-feedback.yml",
     ".github/ISSUE_TEMPLATE/bug.yml",
@@ -63,11 +66,18 @@ NEEDLES = {
         "PASS",
         "WARN",
         "FAIL",
+        "permissioned_connector_v1",
+        "buildPermissionedConnectorRunbook",
+    ],
+    "app/ArchitectClient.tsx": [
+        "Connector v1 runbook",
+        "permissioned_connector_v1",
     ],
     "README.md": [
         "No-Shell Agent Architect MCP",
         "/api/mcp",
         "docs/LAUNCH_KIT.md",
+        "dogfood:beta",
     ],
     "docs/LAUNCH_KIT.md": [
         "Product Hunt Draft",
@@ -83,6 +93,22 @@ NEEDLES = {
         "Compatibility alias recovery",
         "Monitor Production Contract",
         "Launch boundary",
+        "dogfood:beta",
+    ],
+    "delivery/06_permissioned_connector_v1.md": [
+        "Gmail Connector V1",
+        "Community Connector V1",
+        "Action Ledger Schema",
+    ],
+    "outreach/dogfood_public_beta_ops.md": [
+        "Dogfood Public Beta Ops",
+        "permissioned_connector_required",
+        "PASS",
+    ],
+    "outreach/public_beta_one_channel_launch.md": [
+        "staged_not_posted",
+        "Show HN",
+        "Live boundary",
     ],
     ".github/workflows/monitor-production.yml": [
         "Monitor Production Contract",

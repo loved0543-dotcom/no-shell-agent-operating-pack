@@ -9,6 +9,8 @@ export type ArchitectInput = {
   language?: 'ko' | 'en';
 };
 
+export type PermissionedConnectorKind = 'gmail' | 'community' | 'browser';
+
 const DOMAIN_LABEL: Record<Domain, string> = {
   email_docs: 'email/document automation',
   research_reporting: 'research/reporting automation',
@@ -88,6 +90,115 @@ function accountAutomationPlan(domain: Domain, risk: string) {
       'No login or 2FA bypass.',
       'No raw cookie, token, password, recovery-code, or unrestricted mailbox harvesting.',
       'No public, financial, identity, billing, or irreversible action outside the declared live-action scope.'
+    ]
+  };
+}
+
+function connectorKindFromDomain(domain?: Domain | string, goal = ''): PermissionedConnectorKind {
+  if (domain === 'email_docs') return 'gmail';
+  if (domain === 'social_content') return 'community';
+  if (domain === 'browser_ops') return 'browser';
+
+  const raw = `${domain ?? ''} ${goal}`.toLowerCase();
+  if (/gmail|mail|email|inbox|thread|reply/.test(raw)) return 'gmail';
+  if (/reddit|hacker news|show hn|product hunt|linkedin|twitter|x |community|post|publish|social/.test(raw)) return 'community';
+  return 'browser';
+}
+
+export function buildPermissionedConnectorRunbook(input: {
+  goal: string;
+  connector?: PermissionedConnectorKind;
+  risk?: 'low' | 'medium' | 'high' | string;
+}) {
+  const goal = normalizeGoal(input.goal || 'Run one permissioned account workflow.');
+  const connector = input.connector ?? connectorKindFromDomain(undefined, goal);
+  const risk = input.risk ?? 'medium';
+  const base = {
+    product_stage: 'permissioned_connector_v1',
+    goal,
+    connector,
+    default_mode: risk === 'high' ? 'read_only_then_draft' : 'scoped_draft',
+    forbidden_bypass: [
+      'No password, cookie, recovery-code, or 2FA bypass.',
+      'No unrestricted inbox, account, browser, or community scraping.',
+      'No live send, publish, delete, billing, identity, or irreversible action without an exact live-action instruction.'
+    ],
+    action_ledger_schema: [
+      'timestamp',
+      'connector',
+      'mode',
+      'allowed_scope',
+      'target_id_or_url',
+      'draft_or_staged_artifact',
+      'validation_result',
+      'live_action_sent',
+      'remaining_human_step'
+    ],
+    validation: [
+      'Run on one safe sample scope first.',
+      'Produce a draft, staged post, preview, or review queue item before any live action.',
+      'Record an action ledger entry with no raw private content or token values.',
+      'Report PASS/WARN/FAIL with the remaining exact live action.'
+    ],
+    recovery: [
+      'If auth is missing, stop at connector setup instructions and keep the drafted artifact.',
+      'If destination rules are missing, stage the draft and mark rule_check_required.',
+      'If validation fails, fix the prompt/tool route before trying a broader account scope.'
+    ]
+  };
+
+  if (connector === 'gmail') {
+    return {
+      ...base,
+      required_scope_contract: {
+        connector_source: 'Gmail or Google Workspace connector through OAuth/plugin permissions.',
+        read_filters: ['label', 'search query', 'sender/domain', 'date range', 'max results'],
+        write_targets: ['draft reply', 'draft new email', 'task extraction note', 'summary report'],
+        live_boundary: 'Send only when the exact recipient/thread and final wording are approved by the user.'
+      },
+      v1_run_card: [
+        'Select one label/search query and a max result count.',
+        'Summarize matching threads with private content redacted from logs.',
+        'Create draft replies or a follow-up queue.',
+        'Validate recipients, missing context, tone, and forbidden live send.',
+        'Write the action ledger and report the exact remaining send/review step.'
+      ]
+    };
+  }
+
+  if (connector === 'community') {
+    return {
+      ...base,
+      required_scope_contract: {
+        connector_source: 'Official API, approved platform connector, or logged-in browser session owned by the user.',
+        read_filters: ['platform', 'community/subreddit/group', 'rules URL', 'allowed post type', 'target date'],
+        write_targets: ['staged post draft', 'comment draft', 'launch checklist', 'feedback triage queue'],
+        live_boundary: 'Publish, comment, edit, delete, or schedule only after the exact platform, destination, and final copy are approved.'
+      },
+      v1_run_card: [
+        'Choose exactly one public destination.',
+        'Read or open the destination rules before staging copy.',
+        'Create one feedback-seeking post draft with no hype or fake traction claims.',
+        'Stage the draft and record not_posted unless the live action is explicitly approved.',
+        'Run the public beta signal collector after posting or after the scheduled observation window.'
+      ]
+    };
+  }
+
+  return {
+    ...base,
+    required_scope_contract: {
+      connector_source: 'Approved browser session scoped to one declared URL path or dashboard.',
+      read_filters: ['URL origin', 'page path', 'form name', 'account area allowlist'],
+      write_targets: ['preview form fill', 'downloaded report', 'staged setting change', 'QA screenshot'],
+      live_boundary: 'Submit account, billing, identity, production, or irreversible changes only after exact approval.'
+    },
+    v1_run_card: [
+      'Open only the declared URL or dashboard.',
+      'Collect page state needed for the workflow.',
+      'Prepare preview/staged changes without submitting irreversible actions.',
+      'Validate the preview and action ledger.',
+      'Report the exact live submit step that remains.'
     ]
   };
 }
@@ -183,6 +294,9 @@ export function designAutomationStack(input: ArchitectInput) {
     recommended_stack: stack,
     execution_phases: phases(domain),
     account_automation: accountAutomationPlan(domain, risk),
+    permissioned_connector_v1: ['email_docs', 'social_content', 'browser_ops'].includes(domain)
+      ? buildPermissionedConnectorRunbook({ goal, connector: connectorKindFromDomain(domain, goal), risk })
+      : null,
     human_boundaries: humanBoundaries(domain, risk),
     validation: buildValidationPack({ goal, domain, risk }),
     status: 'ready_to_run_as_dry_plan'

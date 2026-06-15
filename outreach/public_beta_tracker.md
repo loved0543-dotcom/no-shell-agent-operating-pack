@@ -32,3 +32,21 @@ Main public feedback thread: https://github.com/loved0543-dotcom/no-shell-agent-
 ## Paid Version Boundary
 
 Do not add a payment flow during public beta. Future paid packaging should wait until there is repeated evidence that users want either domain packs, workflow audits, or hosted team features.
+
+<!-- AUTO_PUBLIC_BETA_SIGNALS_START -->
+## Latest Automated Snapshot
+
+- collected_at: `2026-06-15T12:34:03Z`
+- collector_status: `PASS`
+- beta_signal_status: `WARN` - collector works, but public beta demand signal is still baseline/weak
+- GitHub: stars `0`, forks `0`, subscribers/watchers `0`, open issues `1`
+- Feedback issue: `#1` `open`, comments `0`
+- Live health: `ok`, ok `True`, version `0.1.1`, remote `https://ai-automation-operating-pack.vercel.app/api/mcp`
+- MCP Registry: `ok`, found `True`, latest `True`, version `0.1.1`
+- Boundary: public read-only collection only; no account login, secret, paid API, payment change, or public posting.
+
+### Feedback Issue Comments
+
+- No public comments collected yet.
+
+<!-- AUTO_PUBLIC_BETA_SIGNALS_END -->

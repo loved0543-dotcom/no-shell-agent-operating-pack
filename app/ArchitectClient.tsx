@@ -24,6 +24,16 @@ type ArchitectResult = {
     required_controls?: string[];
     draft_vs_live?: string;
   };
+  permissioned_connector_v1?: {
+    product_stage?: string;
+    connector?: string;
+    default_mode?: string;
+    required_scope_contract?: {
+      connector_source?: string;
+      live_boundary?: string;
+    };
+    v1_run_card?: string[];
+  } | null;
   copy_paste_prompt?: string;
   status?: string;
 };
@@ -63,6 +73,7 @@ export default function ArchitectClient() {
   const dryRun = result?.validation?.dry_run_tests ?? [];
   const qa = result?.validation?.qa_checks ?? [];
   const accountAutomation = result?.account_automation;
+  const connectorV1 = result?.permissioned_connector_v1;
 
   return (
     <section className="tool" id="architect">
@@ -103,6 +114,16 @@ export default function ArchitectClient() {
                   <li>{accountAutomation.connector_route}</li>
                   <li>{accountAutomation.safe_default}</li>
                   <li>{accountAutomation.draft_vs_live}</li>
+                </ul>
+              </article>
+            )}
+            {connectorV1 && (
+              <article className="checks">
+                <strong>Connector v1 runbook</strong>
+                <ul>
+                  <li>{connectorV1.connector} · {connectorV1.default_mode}</li>
+                  <li>{connectorV1.required_scope_contract?.connector_source}</li>
+                  <li>{connectorV1.required_scope_contract?.live_boundary}</li>
                 </ul>
               </article>
             )}

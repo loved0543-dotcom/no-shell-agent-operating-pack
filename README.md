@@ -98,6 +98,7 @@ Client config:
 - Copy-paste command cards written in natural language.
 - Result scorecard for catching fake completion.
 - Recovery playbook: fix the upstream cause instead of stopping at one more gate.
+- Permissioned connector v1 contract for Gmail/community account automation without password, cookie, or posting bypass.
 - Validation tracker for a 20-person usefulness test.
 - Public beta signal tracker for stars, issues, shares, and workflow feedback.
 - Local landing mockup, PDF exports, and ZIP packages.
@@ -123,6 +124,27 @@ Client config:
 - Public beta tracker: `outreach/public_beta_tracker.csv`
 - Public feedback issue: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1
 
+Collect current public beta signals without any account login or paid API:
+
+```powershell
+npm run collect:beta
+```
+
+For the local operator's Obsidian vault, use:
+
+```powershell
+npm run collect:beta:obsidian
+```
+
+Dogfood the product against its own public beta operation:
+
+```powershell
+npm run dogfood:beta
+npm run check:beta-ops
+```
+
+This writes `outreach/dogfood_public_beta_ops.md`, stages one public feedback post packet in `outreach/public_beta_one_channel_launch.md`, and verifies the action ledger and permissioned connector v1 contract.
+
 ## Validation
 
 Run the package selfcheck:
@@ -141,6 +163,8 @@ PASS mcp product selfcheck
 ```
 
 The selfcheck verifies required files, rendered PDF/PNG artifacts, ZIP contents, landing copy, README/manifest, validation-tracker fields, MCP metadata, tool coverage, and secret-pattern safety.
+
+It also checks the public beta operations loop: signal collector, dogfood output, one-channel staged launch packet, action ledger, and permissioned connector v1 runbook.
 
 After production deploys, verify the live contract:
 

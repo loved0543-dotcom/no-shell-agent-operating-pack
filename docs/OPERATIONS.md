@@ -65,3 +65,26 @@ Launch drafts are in `docs/LAUNCH_KIT.md`. Current launch mode is free public be
 Track public signals in `outreach/public_beta_tracker.csv`: stars, issues, comments, shares, real workflow examples, and repeated objections.
 
 Main public feedback thread: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1
+
+Run the public beta signal collector:
+
+```powershell
+npm run collect:beta
+```
+
+This uses public read-only endpoints only: GitHub repo/issue APIs, live health/server metadata, and the official MCP Registry search. It updates `outreach/public_beta_tracker.md`, `outreach/public_beta_tracker.csv`, and `outreach/public_beta_signal_snapshot.json`. To also append a concise local operator note to Obsidian, run:
+
+```powershell
+npm run collect:beta:obsidian
+```
+
+Dogfood the product on its own beta operation:
+
+```powershell
+npm run dogfood:beta
+npm run check:beta-ops
+```
+
+The dogfood run calls the public Architect API with the beta-operations workflow and writes `outreach/dogfood_public_beta_ops.md`. The first public-inflow target is staged in `outreach/public_beta_one_channel_launch.md`, and every staged/live boundary is recorded in `outreach/public_beta_action_ledger.md`.
+
+Permissioned account connector v1 is documented in `delivery/06_permissioned_connector_v1.md`. Gmail and community workflows stay read-only or draft/staged by default; live send/post/submit requires the exact platform, destination, final copy, and logged-in owner session.

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   auditAutomationPlan,
+  buildPermissionedConnectorRunbook,
   buildCustomerIntake,
   designAutomationStack,
   generateNoShellPrompt,
@@ -29,6 +30,8 @@ describe('No-Shell Agent Architect', () => {
     expect(plan.recommended_stack.some((item) => item.id === 'gmail')).toBe(true);
     expect(plan.recommended_stack.some((item) => item.id === 'permissioned-account-automation')).toBe(true);
     expect(plan.account_automation.status).toBe('permissioned_connector_required');
+    expect(plan.permissioned_connector_v1?.connector).toBe('gmail');
+    expect(plan.permissioned_connector_v1?.required_scope_contract.live_boundary).toContain('Send only');
     expect(plan.validation.dry_run_tests.join(' ')).toContain('permissioned connector');
     expect(plan.human_boundaries.join(' ')).toContain('permissioned connector');
   });
@@ -41,8 +44,33 @@ describe('No-Shell Agent Architect', () => {
     expect(plan.interpreted_domain).toBe('social_content');
     expect(plan.recommended_stack.some((item) => item.id === 'permissioned-account-automation')).toBe(true);
     expect(plan.account_automation.draft_vs_live).toContain('exact destination/action');
+    expect(plan.permissioned_connector_v1?.connector).toBe('community');
+    expect(plan.permissioned_connector_v1?.v1_run_card.join(' ')).toContain('not_posted');
     expect(plan.human_boundaries.join(' ')).toContain('allowlisted destination');
     expect(plan.validation.qa_checks.join(' ')).toContain('community posting');
+  });
+
+  it('honors explicit domain over mixed goal keywords', () => {
+    const plan = designAutomationStack({
+      goal: 'Collect GitHub signals, stage one community post, and later design Gmail connector v1.',
+      domain: 'social_content',
+      risk: 'high'
+    });
+    expect(plan.interpreted_domain).toBe('social_content');
+    expect(plan.account_automation.draft_vs_live).toContain('Publish');
+    expect(plan.permissioned_connector_v1?.connector).toBe('community');
+  });
+
+  it('builds a scoped permissioned connector v1 runbook', () => {
+    const runbook = buildPermissionedConnectorRunbook({
+      goal: 'Use Gmail to triage beta feedback and draft replies.',
+      connector: 'gmail',
+      risk: 'high'
+    });
+    expect(runbook.product_stage).toBe('permissioned_connector_v1');
+    expect(runbook.default_mode).toBe('read_only_then_draft');
+    expect(runbook.action_ledger_schema).toContain('live_action_sent');
+    expect(runbook.forbidden_bypass.join(' ')).toContain('2FA bypass');
   });
 
   it('audits weak shell plans', () => {

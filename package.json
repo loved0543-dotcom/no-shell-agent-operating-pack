@@ -24,8 +24,12 @@
     "build": "next build",
     "start": "next start",
     "test": "vitest run",
-    "selfcheck": "python validation/package_selfcheck.py && python validation/mcp_product_selfcheck.py",
-    "check:live": "python validation/check_live_contract.py"
+    "selfcheck": "python validation/package_selfcheck.py && python validation/mcp_product_selfcheck.py && python validation/check_public_beta_ops.py",
+    "check:live": "python validation/check_live_contract.py",
+    "collect:beta": "python validation/collect_public_beta_signals.py",
+    "collect:beta:obsidian": "python validation/collect_public_beta_signals.py --write-obsidian",
+    "dogfood:beta": "python validation/dogfood_public_beta_ops.py",
+    "check:beta-ops": "python validation/check_public_beta_ops.py"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",
