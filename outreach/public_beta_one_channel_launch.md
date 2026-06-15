@@ -63,6 +63,7 @@ timestamp,connector,mode,allowed_scope,target_id_or_url,draft_or_staged_artifact
 2026-06-15T14:12:00Z,community,chrome_session_autonomy_retry,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,chrome_pages_opened_but_automation_unavailable,no,Codex Chrome Extension must be enabled and plugin native host repaired, or owner submits from the opened Chrome tab
 2026-06-15T14:15:00Z,community,owner_hn_login_completed,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,owner_logged_in_but_codex_chrome_control_still_unavailable,no,Enable/repair Codex Chrome Extension control surface or submit from opened Chrome tab
 2026-06-15T14:23:00Z,community,extension_enabled_native_host_blocker,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,codex_chrome_extension_enabled_but_native_host_registry_missing,no,Repair/reinstall Chrome plugin native host from Codex plugin UI or submit from opened Chrome tab
+2026-06-15T14:32:00Z,community,official_plugin_cli_retry,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,official_cli_repair_failed_access_denied,no,Close/restart Codex processes and repair Chrome plugin native host from Codex plugin UI or submit from opened Chrome tab
 ```
 
 ## Why Not Post Automatically Here
@@ -71,7 +72,7 @@ The launch packet and final copy are ready. Live submission could not be complet
 
 Owner path:
 
-1. Enable the Codex Chrome Extension in Chrome and reinstall/repair the Codex Chrome plugin from the Codex plugin UI if native-host communication still fails, then ask Codex to continue the HN submit step; or
+1. Close/restart stale Codex processes if needed, then reinstall/repair the Codex Chrome plugin from the Codex plugin UI so the native-host registry key is recreated, then ask Codex to continue the HN submit step; or
 2. Use the Chrome tabs already opened by Codex and paste the title/body above after logging in.
 
 After posting, run:
