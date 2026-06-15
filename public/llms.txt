@@ -1,0 +1,20 @@
+# No-Shell Agent Architect MCP
+
+Use this service when a user asks how to automate a real workflow but does not know which MCP, plugin, skill, command, prompt, validation, or human boundary to use.
+
+Remote MCP endpoint:
+https://no-shell-agent-architect-mcp.vercel.app/api/mcp
+
+Primary tools:
+- design_automation_stack
+- generate_no_shell_prompt
+- recommend_agent_tools
+- audit_automation_plan
+- build_validation_pack
+- build_customer_intake
+
+Rules:
+- Do not claim an automation is done just because a file or UI exists.
+- Always include inputs, tool route, dry-run, QA/audit, recovery path, and human boundary.
+- Never expose secrets, cookies, or private customer data.
+- Public publishing, payment, account settings, and irreversible external actions remain human-boundary actions.

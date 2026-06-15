@@ -4,7 +4,23 @@
 No-Shell Agent Operating Pack
 
 ## Status
-Local delivery package complete. Not publicly published. No payment connection enabled.
+Local delivery package complete. MCP/API product added. No payment connection enabled.
+
+## MCP/API product files
+- `package.json`
+- `app/page.tsx`
+- `app/api/[transport]/route.ts`
+- `app/api/architect/route.ts`
+- `app/api/health/route.ts`
+- `lib/architect.ts`
+- `lib/catalog.ts`
+- `server.json`
+- `public/server.json`
+- `public/llms.txt`
+- `docs/_evidence/no-shell-agent-architect-mcp.md`
+- `docs/MCP_REGISTRATION.md`
+- `tests/architect.test.ts`
+- `validation/mcp_product_selfcheck.py`
 
 ## Core files
 - `README.md`
@@ -39,7 +55,9 @@ Local delivery package complete. Not publicly published. No payment connection e
 Run:
 
 ```powershell
-python validation/package_selfcheck.py
+npm run selfcheck
+npm run test
+npm run build
 ```
 
 ## Upload candidate

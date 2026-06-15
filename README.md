@@ -4,6 +4,50 @@ An open-source operating pack for people who already use AI agents but keep gett
 
 This is not a prompt-pack that promises magic. It is a plain-language operating system for delegating work to ChatGPT, Claude, Codex, Gemini, Hermes, and similar agents with a real objective, inputs, tool choice, validation, recovery, and human boundary.
 
+## No-Shell Agent Architect MCP
+
+This repository now also ships a remote MCP/API product: **No-Shell Agent Architect MCP**.
+
+It takes a plain-language automation goal and returns:
+
+- the recommended MCP/plugin/skill/tool stack;
+- a copy-paste no-shell agent command;
+- dry-run steps;
+- QA and audit checks;
+- recovery guidance;
+- human boundaries for secrets, accounts, payments, publishing, and irreversible actions.
+
+Local API preview:
+
+```powershell
+npm install
+npm run dev
+```
+
+Then open:
+
+```text
+http://localhost:3000
+```
+
+Remote MCP endpoint after deployment:
+
+```text
+https://no-shell-agent-architect-mcp.vercel.app/api/mcp
+```
+
+Client config:
+
+```json
+{
+  "mcpServers": {
+    "no-shell-agent-architect": {
+      "url": "https://no-shell-agent-architect-mcp.vercel.app/api/mcp"
+    }
+  }
+}
+```
+
 ## Who this is for
 
 - Non-developers, solo operators, freelancers, and small teams who want practical AI automation.
@@ -47,16 +91,19 @@ This is not a prompt-pack that promises magic. It is a plain-language operating 
 Run the package selfcheck:
 
 ```powershell
-python validation/package_selfcheck.py
+npm run selfcheck
+npm run test
+npm run build
 ```
 
 Expected result:
 
 ```text
 PASS package selfcheck
+PASS mcp product selfcheck
 ```
 
-The selfcheck verifies required files, rendered PDF/PNG artifacts, ZIP contents, landing copy, README/manifest, and validation-tracker fields.
+The selfcheck verifies required files, rendered PDF/PNG artifacts, ZIP contents, landing copy, README/manifest, validation-tracker fields, MCP metadata, tool coverage, and secret-pattern safety.
 
 ## Current status
 

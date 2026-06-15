@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.loved0543-dotcom/no-shell-agent-architect-mcp",
+  "title": "No-Shell Agent Architect MCP",
+  "description": "Turns vague automation requests into MCP/plugin/skill stacks, copy-paste agent prompts, dry-run plans, QA/audit checks, recovery paths, and human boundaries.",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/loved0543-dotcom/no-shell-agent-operating-pack",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://no-shell-agent-architect-mcp.vercel.app/api/mcp"
+    }
+  ]
+}
