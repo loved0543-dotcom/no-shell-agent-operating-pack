@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-06-15T15:26:42Z",
+  "collected_at": "2026-06-15T16:30:43Z",
   "collector_status": "PASS",
   "beta_signal_status": "WARN",
   "beta_signal_reason": "collector works, but public beta demand signal is still baseline/weak",
@@ -9,13 +9,13 @@
     "repo_url": "https://github.com/loved0543-dotcom/no-shell-agent-operating-pack",
     "feedback_issue_url": "https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1",
     "errors": [],
-    "rate_limit_remaining": "55",
+    "rate_limit_remaining": "53",
     "stars": 0,
     "forks": 0,
     "watchers_alias": 0,
     "subscribers": 0,
     "open_issues": 1,
-    "pushed_at": "2026-06-15T15:19:31Z",
+    "pushed_at": "2026-06-15T15:29:50Z",
     "feedback_issue": {
       "number": 1,
       "state": "open",
@@ -24,7 +24,73 @@
       "updated_at": "2026-06-15T10:15:11Z",
       "html_url": "https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1"
     },
-    "comments": []
+    "comments": [],
+    "releases": {
+      "status": "ok",
+      "count": 0,
+      "total_asset_downloads": 0,
+      "releases": [],
+      "errors": []
+    },
+    "tags": {
+      "status": "ok",
+      "count": 2,
+      "tags": [
+        {
+          "name": "v0.1.1-public-beta",
+          "zipball_url": "https://api.github.com/repos/loved0543-dotcom/no-shell-agent-operating-pack/zipball/refs/tags/v0.1.1-public-beta",
+          "tarball_url": "https://api.github.com/repos/loved0543-dotcom/no-shell-agent-operating-pack/tarball/refs/tags/v0.1.1-public-beta",
+          "commit": "f3bf7be6a5ede6f6bc4d283e68cbaf7cd44d593a"
+        },
+        {
+          "name": "v0.1.0",
+          "zipball_url": "https://api.github.com/repos/loved0543-dotcom/no-shell-agent-operating-pack/zipball/refs/tags/v0.1.0",
+          "tarball_url": "https://api.github.com/repos/loved0543-dotcom/no-shell-agent-operating-pack/tarball/refs/tags/v0.1.0",
+          "commit": "e97af1eddcca778e11f1c6df90c643618332fb31"
+        }
+      ],
+      "errors": []
+    },
+    "dist_files": {
+      "status": "ok",
+      "zip_count": 2,
+      "zip_files": [
+        {
+          "name": "no-shell-agent-operating-pack-starter-v1.zip",
+          "path": "dist/no-shell-agent-operating-pack-starter-v1.zip",
+          "size": 232749,
+          "html_url": "https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/blob/main/dist/no-shell-agent-operating-pack-starter-v1.zip",
+          "download_url": "https://raw.githubusercontent.com/loved0543-dotcom/no-shell-agent-operating-pack/main/dist/no-shell-agent-operating-pack-starter-v1.zip"
+        },
+        {
+          "name": "no-shell-agent-operating-pack-workbench-v1.zip",
+          "path": "dist/no-shell-agent-operating-pack-workbench-v1.zip",
+          "size": 366529,
+          "html_url": "https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/blob/main/dist/no-shell-agent-operating-pack-workbench-v1.zip",
+          "download_url": "https://raw.githubusercontent.com/loved0543-dotcom/no-shell-agent-operating-pack/main/dist/no-shell-agent-operating-pack-workbench-v1.zip"
+        }
+      ],
+      "download_count_available": false,
+      "errors": [],
+      "note": "GitHub raw/blob file downloads do not expose a public per-file download counter."
+    },
+    "public_actors": {
+      "status": "ok",
+      "stargazers": [],
+      "fork_owners": [],
+      "identity_scope": "Only public stargazers, fork owners, and issue/comment authors are visible. Release/raw downloads and clones do not expose downloader identities.",
+      "errors": []
+    },
+    "traffic": {
+      "status": "unauthorized",
+      "clones_available": false,
+      "identity_available": false,
+      "aggregate_only": true,
+      "errors": [
+        "HTTP Error 401: Unauthorized"
+      ],
+      "note": "GitHub traffic APIs require repo authentication and do not reveal who cloned or downloaded."
+    }
   },
   "live": {
     "status": "ok",

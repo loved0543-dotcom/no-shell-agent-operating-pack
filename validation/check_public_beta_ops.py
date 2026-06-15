@@ -8,11 +8,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED = {
-    "validation/collect_public_beta_signals.py": ["GitHub stars", "MCP Registry", "write-obsidian"],
+    "validation/collect_public_beta_signals.py": ["GitHub stars", "Release asset downloads", "MCP Registry", "write-obsidian"],
     "validation/dogfood_public_beta_ops.py": ["DOGFOOD_GOAL", "permissioned connector v1", "posted_publicly"],
-    "outreach/public_beta_signal_snapshot.json": ["collector_status", "beta_signal_status"],
-    "outreach/public_beta_tracker.md": ["Latest Automated Snapshot", "beta_signal_status"],
-    "outreach/public_beta_tracker.csv": ["repo_snapshot", "MCP Registry"],
+    "outreach/public_beta_signal_snapshot.json": ["collector_status", "beta_signal_status", "releases", "traffic"],
+    "outreach/public_beta_tracker.md": ["Latest Automated Snapshot", "Release asset downloads", "GitHub Download Visibility Boundary"],
+    "outreach/public_beta_tracker.csv": ["repo_snapshot", "release_assets", "traffic_boundary", "MCP Registry"],
     "outreach/dogfood_public_beta_ops.md": ["Dogfood Public Beta Ops", "permissioned_connector_required"],
     "outreach/dogfood_public_beta_ops.json": ["permissioned_connector_required", "ready_to_run_as_dry_plan"],
     "outreach/public_beta_one_channel_launch.md": ["staged_not_posted", "Show HN", "Live boundary"],

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Collect GitHub stars, issue feedback, live health, and MCP Registry signals."""
+"""Collect GitHub stars, release downloads, issue feedback, live health, and MCP Registry signals."""
 from __future__ import annotations
 
 import argparse
@@ -80,6 +80,180 @@ def fetch_json(url: str) -> tuple[Any | None, dict[str, str], str | None]:
         return None, {}, str(exc)
 
 
+def collect_releases(api_root: str) -> dict[str, Any]:
+    releases, _, error = fetch_json(f"{api_root}/releases?per_page=20")
+    result: dict[str, Any] = {
+        "status": "ok",
+        "count": 0,
+        "total_asset_downloads": 0,
+        "releases": [],
+        "errors": [],
+    }
+    if error:
+        result["status"] = "warn"
+        result["errors"].append(error)
+        return result
+    if not isinstance(releases, list):
+        result["status"] = "warn"
+        result["errors"].append("unexpected releases payload")
+        return result
+    parsed = []
+    total_downloads = 0
+    for release in releases:
+        assets = []
+        for asset in release.get("assets") or []:
+            downloads = int(asset.get("download_count") or 0)
+            total_downloads += downloads
+            assets.append(
+                {
+                    "name": asset.get("name"),
+                    "size": asset.get("size"),
+                    "download_count": downloads,
+                    "browser_download_url": asset.get("browser_download_url"),
+                }
+            )
+        parsed.append(
+            {
+                "tag_name": release.get("tag_name"),
+                "name": release.get("name"),
+                "draft": release.get("draft"),
+                "prerelease": release.get("prerelease"),
+                "published_at": release.get("published_at"),
+                "html_url": release.get("html_url"),
+                "asset_count": len(assets),
+                "asset_downloads": sum(asset["download_count"] for asset in assets),
+                "assets": assets,
+            }
+        )
+    result["count"] = len(parsed)
+    result["total_asset_downloads"] = total_downloads
+    result["releases"] = parsed
+    return result
+
+
+def collect_tags(api_root: str) -> dict[str, Any]:
+    tags, _, error = fetch_json(f"{api_root}/tags?per_page=20")
+    result: dict[str, Any] = {"status": "ok", "count": 0, "tags": [], "errors": []}
+    if error:
+        result["status"] = "warn"
+        result["errors"].append(error)
+        return result
+    if isinstance(tags, list):
+        result["count"] = len(tags)
+        result["tags"] = [
+            {
+                "name": tag.get("name"),
+                "zipball_url": tag.get("zipball_url"),
+                "tarball_url": tag.get("tarball_url"),
+                "commit": (tag.get("commit") or {}).get("sha"),
+            }
+            for tag in tags
+        ]
+    return result
+
+
+def collect_dist_files(api_root: str) -> dict[str, Any]:
+    files, _, error = fetch_json(f"{api_root}/contents/dist?ref=main")
+    result: dict[str, Any] = {
+        "status": "ok",
+        "zip_count": 0,
+        "zip_files": [],
+        "download_count_available": False,
+        "errors": [],
+        "note": "GitHub raw/blob file downloads do not expose a public per-file download counter.",
+    }
+    if error:
+        result["status"] = "warn"
+        result["errors"].append(error)
+        return result
+    if not isinstance(files, list):
+        result["status"] = "warn"
+        result["errors"].append("unexpected contents payload")
+        return result
+    zips = []
+    for item in files:
+        name = item.get("name") or ""
+        if not name.lower().endswith(".zip"):
+            continue
+        zips.append(
+            {
+                "name": name,
+                "path": item.get("path"),
+                "size": item.get("size"),
+                "html_url": item.get("html_url"),
+                "download_url": item.get("download_url"),
+            }
+        )
+    result["zip_count"] = len(zips)
+    result["zip_files"] = zips
+    return result
+
+
+def collect_public_actors(api_root: str) -> dict[str, Any]:
+    stargazers, _, star_error = fetch_json(f"{api_root}/stargazers?per_page=100")
+    forks, _, fork_error = fetch_json(f"{api_root}/forks?per_page=100")
+    result: dict[str, Any] = {
+        "status": "ok",
+        "stargazers": [],
+        "fork_owners": [],
+        "identity_scope": "Only public stargazers, fork owners, and issue/comment authors are visible. Release/raw downloads and clones do not expose downloader identities.",
+        "errors": [],
+    }
+    if star_error:
+        result["status"] = "warn"
+        result["errors"].append(f"stargazers: {star_error}")
+    elif isinstance(stargazers, list):
+        result["stargazers"] = [
+            {
+                "login": item.get("login"),
+                "html_url": item.get("html_url"),
+                "type": item.get("type"),
+            }
+            for item in stargazers
+            if isinstance(item, dict)
+        ]
+    if fork_error:
+        result["status"] = "warn"
+        result["errors"].append(f"forks: {fork_error}")
+    elif isinstance(forks, list):
+        owners = []
+        for item in forks:
+            owner = (item.get("owner") or {}) if isinstance(item, dict) else {}
+            owners.append(
+                {
+                    "login": owner.get("login"),
+                    "html_url": owner.get("html_url"),
+                    "fork_url": item.get("html_url") if isinstance(item, dict) else None,
+                }
+            )
+        result["fork_owners"] = owners
+    return result
+
+
+def collect_traffic_boundary(api_root: str) -> dict[str, Any]:
+    # GitHub traffic endpoints require repository authentication and still return
+    # aggregate counts only, not downloader or cloner identities.
+    clones, _, clone_error = fetch_json(f"{api_root}/traffic/clones")
+    result: dict[str, Any] = {
+        "status": "ok",
+        "clones_available": False,
+        "identity_available": False,
+        "aggregate_only": True,
+        "errors": [],
+        "note": "GitHub traffic APIs require repo authentication and do not reveal who cloned or downloaded.",
+    }
+    if clone_error:
+        result["status"] = "unauthorized" if "401" in clone_error or "403" in clone_error else "warn"
+        result["errors"].append(clone_error)
+        return result
+    if isinstance(clones, dict):
+        result["clones_available"] = True
+        result["count"] = clones.get("count")
+        result["uniques"] = clones.get("uniques")
+        result["clones"] = clones.get("clones", [])
+    return result
+
+
 def collect_github() -> dict[str, Any]:
     api_root = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}"
     repo, repo_headers, repo_error = fetch_json(api_root)
@@ -143,6 +317,11 @@ def collect_github() -> dict[str, Any]:
                 }
             )
     result["comments"] = parsed_comments
+    result["releases"] = collect_releases(api_root)
+    result["tags"] = collect_tags(api_root)
+    result["dist_files"] = collect_dist_files(api_root)
+    result["public_actors"] = collect_public_actors(api_root)
+    result["traffic"] = collect_traffic_boundary(api_root)
     if result["errors"]:
         result["status"] = "warn" if (repo or issue or comments) else "fail"
     return result
@@ -233,9 +412,10 @@ def beta_signal_status(github: dict[str, Any]) -> tuple[str, str]:
     forks = int(github.get("forks") or 0)
     issue = github.get("feedback_issue") or {}
     comments = int(issue.get("comments_count") or 0)
+    release_downloads = int((github.get("releases") or {}).get("total_asset_downloads") or 0)
     if comments > 0:
         return "PASS", "feedback issue has public comments to review"
-    if stars or forks:
+    if stars or forks or release_downloads:
         return "WARN", "public interest exists, but workflow feedback is still thin"
     return "WARN", "collector works, but public beta demand signal is still baseline/weak"
 
@@ -277,6 +457,10 @@ def csv_rows(snapshot: dict[str, Any]) -> list[dict[str, str]]:
     date = snapshot["collected_at"]
     github = snapshot["github"]
     issue = github.get("feedback_issue") or {}
+    releases = github.get("releases") or {}
+    dist_files = github.get("dist_files") or {}
+    public_actors = github.get("public_actors") or {}
+    traffic = github.get("traffic") or {}
     rows = [
         {
             "date": date,
@@ -291,6 +475,62 @@ def csv_rows(snapshot: dict[str, Any]) -> list[dict[str, str]]:
             "main_feedback": snapshot["beta_signal_reason"],
             "next_action": "watch feedback issue",
             "status": snapshot["beta_signal_status"],
+        },
+        {
+            "date": date,
+            "source": "GitHub",
+            "signal_type": "release_assets",
+            "handle_or_org": github.get("repo", ""),
+            "workflow_domain": "",
+            "workflow_summary": f"releases={releases.get('count', 0)} release_asset_downloads={releases.get('total_asset_downloads', 0)}",
+            "starred": "",
+            "opened_issue": "",
+            "shared_link": f"https://github.com/{GITHUB_OWNER}/{GITHUB_REPO}/releases",
+            "main_feedback": "GitHub release asset downloads are counted only for Release assets, not raw files in the repo.",
+            "next_action": "create a GitHub Release with ZIP assets if download counts are needed",
+            "status": releases.get("status", ""),
+        },
+        {
+            "date": date,
+            "source": "GitHub",
+            "signal_type": "repo_zip_files",
+            "handle_or_org": github.get("repo", ""),
+            "workflow_domain": "",
+            "workflow_summary": f"dist_zip_files={dist_files.get('zip_count', 0)} raw_download_count_available={dist_files.get('download_count_available')}",
+            "starred": "",
+            "opened_issue": "",
+            "shared_link": "dist/",
+            "main_feedback": dist_files.get("note", ""),
+            "next_action": "move ZIPs to Release assets for measurable public download counts",
+            "status": dist_files.get("status", ""),
+        },
+        {
+            "date": date,
+            "source": "GitHub",
+            "signal_type": "visible_public_actors",
+            "handle_or_org": github.get("repo", ""),
+            "workflow_domain": "",
+            "workflow_summary": f"stargazers={len(public_actors.get('stargazers', []))} fork_owners={len(public_actors.get('fork_owners', []))}",
+            "starred": str(len(public_actors.get("stargazers", []))),
+            "opened_issue": "",
+            "shared_link": github.get("repo_url", ""),
+            "main_feedback": public_actors.get("identity_scope", ""),
+            "next_action": "use issue comments or stars/forks for visible public actors",
+            "status": public_actors.get("status", ""),
+        },
+        {
+            "date": date,
+            "source": "GitHub",
+            "signal_type": "traffic_boundary",
+            "handle_or_org": github.get("repo", ""),
+            "workflow_domain": "",
+            "workflow_summary": f"clones_available={traffic.get('clones_available')} identity_available={traffic.get('identity_available')}",
+            "starred": "",
+            "opened_issue": "",
+            "shared_link": f"https://github.com/{GITHUB_OWNER}/{GITHUB_REPO}/graphs/traffic",
+            "main_feedback": traffic.get("note", ""),
+            "next_action": "authenticate as repo owner only if aggregate traffic counts are needed",
+            "status": traffic.get("status", ""),
         },
         {
             "date": date,
@@ -369,6 +609,11 @@ def append_csv(snapshot: dict[str, Any]) -> None:
 def render_markdown_snapshot(snapshot: dict[str, Any]) -> str:
     github = snapshot["github"]
     issue = github.get("feedback_issue") or {}
+    releases = github.get("releases") or {}
+    tags = github.get("tags") or {}
+    dist_files = github.get("dist_files") or {}
+    public_actors = github.get("public_actors") or {}
+    traffic = github.get("traffic") or {}
     live = snapshot["live"]
     registry = snapshot["registry"]
     comments = github.get("comments", [])
@@ -380,12 +625,31 @@ def render_markdown_snapshot(snapshot: dict[str, Any]) -> str:
         f"- collector_status: `{snapshot['collector_status']}`",
         f"- beta_signal_status: `{snapshot['beta_signal_status']}` - {snapshot['beta_signal_reason']}",
         f"- GitHub: stars `{github.get('stars', 0)}`, forks `{github.get('forks', 0)}`, subscribers/watchers `{github.get('subscribers', 0)}`, open issues `{github.get('open_issues', 0)}`",
+        f"- Release asset downloads: releases `{releases.get('count', 0)}`, total asset downloads `{releases.get('total_asset_downloads', 0)}`",
+        f"- Repo ZIP files: dist ZIPs `{dist_files.get('zip_count', 0)}`, raw/blob download counter available `{dist_files.get('download_count_available')}`",
+        f"- Tags: `{tags.get('count', 0)}` tracked tags. GitHub tag zip/tarball downloads do not expose public download counts.",
+        f"- Visible public actors: stargazers `{len(public_actors.get('stargazers', []))}`, fork owners `{len(public_actors.get('fork_owners', []))}`",
+        f"- GitHub traffic: `{traffic.get('status')}`, clones aggregate available `{traffic.get('clones_available')}`, downloader identity available `{traffic.get('identity_available')}`",
         f"- Feedback issue: `#{issue.get('number', FEEDBACK_ISSUE)}` `{issue.get('state', 'unknown')}`, comments `{issue.get('comments_count', 0)}`",
         f"- Live health: `{live.get('status')}`, ok `{live.get('health_ok')}`, version `{live.get('health_version')}`, remote `{live.get('remote_url')}`",
         f"- MCP Registry: `{registry.get('status')}`, found `{registry.get('found')}`, latest `{registry.get('is_latest')}`, version `{registry.get('version')}`",
-        "- Boundary: public read-only collection only; no account login, secret, paid API, payment change, or public posting.",
+        "- Boundary: public read-only collection only; no account login, secret, paid API, payment change, public posting, or downloader de-anonymization.",
         "",
     ]
+    if releases.get("releases"):
+        lines.append("### GitHub Release Assets")
+        lines.append("")
+        for release in releases["releases"]:
+            lines.append(f"- `{release.get('tag_name')}` assets `{release.get('asset_count')}`, downloads `{release.get('asset_downloads')}` ({release.get('html_url')})")
+        lines.append("")
+    else:
+        lines.extend(["### GitHub Release Assets", "", "- No GitHub Releases exist yet, so Release asset download counts are `0/not available`.", ""])
+    if dist_files.get("zip_files"):
+        lines.append("### Repo ZIP Files")
+        lines.append("")
+        for item in dist_files["zip_files"]:
+            lines.append(f"- `{item.get('path')}` size `{item.get('size')}` raw download count `not available`")
+        lines.append("")
     if comments:
         lines.append("### Feedback Issue Comments")
         lines.append("")
@@ -436,6 +700,10 @@ def append_obsidian(snapshot: dict[str, Any], vault: Path) -> list[Path]:
 
     github = snapshot["github"]
     issue = github.get("feedback_issue") or {}
+    releases = github.get("releases") or {}
+    dist_files = github.get("dist_files") or {}
+    public_actors = github.get("public_actors") or {}
+    traffic = github.get("traffic") or {}
     live = snapshot["live"]
     registry = snapshot["registry"]
     summary = (
@@ -443,9 +711,12 @@ def append_obsidian(snapshot: dict[str, Any], vault: Path) -> list[Path]:
         f"- 작업: 공개 읽기 API로 GitHub/Vercel live/MCP Registry/feedback issue 댓글을 수집해 repo tracker를 갱신.\n"
         f"- 결과: stars `{github.get('stars', 0)}`, forks `{github.get('forks', 0)}`, subscribers/watchers `{github.get('subscribers', 0)}`, "
         f"open issues `{github.get('open_issues', 0)}`, feedback comments `{issue.get('comments_count', 0)}`, "
-        f"live `{live.get('status')}`, registry `{registry.get('status')}`.\n"
+        f"release asset downloads `{releases.get('total_asset_downloads', 0)}`, dist ZIPs `{dist_files.get('zip_count', 0)}`, "
+        f"visible stargazers `{len(public_actors.get('stargazers', []))}`, visible fork owners `{len(public_actors.get('fork_owners', []))}`, "
+        f"traffic `{traffic.get('status')}`, live `{live.get('status')}`, registry `{registry.get('status')}`.\n"
+        f"- 다운로드 한계: GitHub Release asset은 다운로드 수만 제공하고 사용자 신원은 제공하지 않음. 현재 repo ZIP은 `dist/` raw/blob 파일이라 공개 다운로드 카운터가 없음. traffic/clones API는 인증 필요이며 집계값만 제공한다.\n"
         f"- 변경: `outreach/public_beta_tracker.md`, `outreach/public_beta_tracker.csv`, `outreach/public_beta_signal_snapshot.json`.\n"
-        f"- 경계: public read-only 수집만 수행. 계정 로그인/비밀/유료 API/공개게시/결제 변경 없음.\n"
+        f"- 경계: public read-only 수집만 수행. 계정 로그인/비밀/유료 API/공개게시/결제 변경/다운로더 신원 추적 없음.\n"
         f"- 상태: collector `{snapshot['collector_status']}`, beta_signal `{snapshot['beta_signal_status']}` - {snapshot['beta_signal_reason']}.\n"
     )
     for path in (daily, project):
