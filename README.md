@@ -36,6 +36,12 @@ Remote MCP endpoint after deployment:
 https://no-shell-agent-architect-mcp.vercel.app/api/mcp
 ```
 
+Official MCP Registry:
+
+```text
+https://registry.modelcontextprotocol.io/v0/servers?search=no-shell-agent-architect-mcp
+```
+
 Client config:
 
 ```json

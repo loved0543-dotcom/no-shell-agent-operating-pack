@@ -8,6 +8,16 @@ Remote MCP endpoint:
 https://no-shell-agent-architect-mcp.vercel.app/api/mcp
 ```
 
+## Registry status
+
+Published to the official MCP Registry through GitHub Actions OIDC.
+
+Registry search:
+
+```text
+https://registry.modelcontextprotocol.io/v0/servers?search=no-shell-agent-architect-mcp
+```
+
 ## Registry metadata
 
 Use `server.json` at the repository root. The same file is also served from `/server.json` for crawlers and directory reviewers.
