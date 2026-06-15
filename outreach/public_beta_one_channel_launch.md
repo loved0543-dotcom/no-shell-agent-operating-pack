@@ -5,7 +5,7 @@
 Start with one staged public feedback post, not a multi-channel blast.
 
 - Target channel: Hacker News `Show HN`
-- Status: `staged_not_posted`
+- Status: `ready_for_owner_login`
 - Reason: the product is a working public URL and open-source MCP/API, but the account login and final live submission belong to the owner.
 - Live boundary: post only through the user's logged-in HN session after final title/body approval. Do not bypass login, cookies, 2FA, or HN rules.
 
@@ -17,6 +17,14 @@ Start with one staged public feedback post, not a multi-channel blast.
 - Feedback issue: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1
 - Required local check before posting: `npm run check:live`
 - Required observation after posting or after staging review: `npm run collect:beta:obsidian`
+
+## Rule Check
+
+- Checked source: https://news.ycombinator.com/showhn.html
+- Show HN fit: acceptable because this is a working public MCP/API and open-source repository that users can try.
+- Required title form: title must begin with `Show HN`.
+- Do not ask for upvotes or coordinated comments.
+- Make it easy to try without barriers; the live demo, source, and MCP endpoint are included.
 
 ## Staged Show HN Draft
 
@@ -51,8 +59,20 @@ I would like feedback on two things:
 ```csv
 timestamp,connector,mode,allowed_scope,target_id_or_url,draft_or_staged_artifact,validation_result,live_action_sent,remaining_human_step
 2026-06-15T12:25:00Z,community,staged_draft,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,staged_not_posted,no,Owner logs in to HN and approves final title/body before submit
+2026-06-15T12:44:00Z,community,ready_for_owner_login,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,rule_check_passed_chrome_extension_disabled,no,Enable Codex Chrome Extension or manually submit after HN login
 ```
 
 ## Why Not Post Automatically Here
 
-The user's current instruction is enough to build the launch packet and stage the action. It is not enough to choose or use an account session, bypass login, or submit a post through a third-party community. That live step needs the exact logged-in destination and final copy confirmation at the moment of posting.
+The launch packet and final copy are ready. Live submission could not be completed in this run because the Codex Chrome Extension is installed but disabled, so Codex cannot use the user's logged-in Chrome session. The public HN submit page also requires login. Do not bypass login, cookies, 2FA, or community rules.
+
+Owner path:
+
+1. Enable the Codex Chrome Extension in Chrome, then ask Codex to continue the HN submit step; or
+2. Manually open https://news.ycombinator.com/submit after logging in and paste the title/body above.
+
+After posting, run:
+
+```powershell
+npm run collect:beta:obsidian
+```
