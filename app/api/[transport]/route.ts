@@ -3,6 +3,7 @@ import { z } from 'zod';
 import {
   auditAutomationPlan,
   buildCustomerIntake,
+  buildM2MPackageContract,
   buildValidationPack,
   designAutomationStack,
   generateNoShellPrompt,
@@ -99,11 +100,27 @@ const handler = createMcpHandler(
         content: [{ type: 'text', text: JSON.stringify(buildCustomerIntake(goal), null, 2) }]
       })
     );
+
+    server.registerTool(
+      'build_m2m_package_contract',
+      {
+        title: 'Build M2M Package Contract',
+        description: 'Create a machine-readable package contract for agencies, SaaS builders, or other agents that want to integrate the No-Shell operating pack through MCP/API plus human-readable delivery artifacts.',
+        inputSchema: {
+          ...architectSchema,
+          buyerType: z.string().optional().describe('Agency, freelancer, SaaS builder, solo operator, internal ops team, etc.'),
+          packageMode: z.string().optional().describe('mcp_api, starter_pack, agency_workbench, connector_pack, or a custom packaging mode.')
+        }
+      },
+      async (args) => ({
+        content: [{ type: 'text', text: JSON.stringify(buildM2MPackageContract(args), null, 2) }]
+      })
+    );
   },
   {
     serverInfo: {
       name: 'no-shell-agent-architect-mcp',
-      version: '0.1.1'
+      version: '0.1.2'
     }
   },
   {

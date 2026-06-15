@@ -206,7 +206,7 @@ Expected:
 
 - canonical `/api/health` returns the current version;
 - compatibility URL is not stale;
-- `/api/mcp` returns all six tools;
+- `/api/mcp` returns all seven tools, including `build_m2m_package_contract`;
 - official MCP Registry latest points to `https://ai-automation-operating-pack.vercel.app/api/mcp`.
 
 ## Posting Rules Checked

@@ -11,6 +11,11 @@ export type ArchitectInput = {
 
 export type PermissionedConnectorKind = 'gmail' | 'community' | 'browser';
 
+export type M2MPackageInput = ArchitectInput & {
+  buyerType?: string;
+  packageMode?: 'mcp_api' | 'starter_pack' | 'agency_workbench' | 'connector_pack' | string;
+};
+
 const DOMAIN_LABEL: Record<Domain, string> = {
   email_docs: 'email/document automation',
   research_reporting: 'research/reporting automation',
@@ -380,6 +385,137 @@ export function buildValidationPack(input: { goal: string; domain?: Domain | str
     qa_checks: qaChecks,
     audit_checks: auditChecks,
     pass_definition: `PASS only when the sample workflow for "${normalizeGoal(input.goal)}" produces a usable output, validation evidence, and a clear human boundary.`
+  };
+}
+
+export function buildM2MPackageContract(input: M2MPackageInput) {
+  const goal = normalizeGoal(input.goal || 'Package one no-shell automation workflow for another agent or operator.');
+  const buyerType = normalizeGoal(input.buyerType || input.userType || 'AI automation freelancer, agency, SaaS builder, or solo operator');
+  const packageMode = input.packageMode || 'mcp_api';
+  const plan = designAutomationStack({
+    goal,
+    userType: buyerType,
+    domain: input.domain,
+    currentTools: input.currentTools,
+    risk: input.risk || 'medium',
+    language: input.language
+  });
+
+  const packageSurfaces = [
+    {
+      surface: 'remote_mcp',
+      url: 'https://ai-automation-operating-pack.vercel.app/api/mcp',
+      use_for: 'Agent-to-agent stack routing, prompt generation, validation pack generation, intake generation, and M2M package contracts.'
+    },
+    {
+      surface: 'http_api',
+      url: 'https://ai-automation-operating-pack.vercel.app/api/architect',
+      use_for: 'Plain HTTP integration when the client cannot use an MCP runtime yet.'
+    },
+    {
+      surface: 'm2m_package_api',
+      url: 'https://ai-automation-operating-pack.vercel.app/api/m2m-package',
+      use_for: 'One-call machine-readable packaging contract for agencies, builders, and operators.'
+    },
+    {
+      surface: 'human_package',
+      path: 'dist/no-shell-agent-operating-pack-starter-v1.zip',
+      use_for: 'Human-readable starter pack, diagnostic, demo, command cards, scorecard, and recovery playbook.'
+    }
+  ];
+
+  return {
+    product: 'No-Shell Agent Architect MCP / AI Automation Operating Pack',
+    package_stage: 'm2m_package_contract_v1',
+    package_mode: packageMode,
+    target_buyer: buyerType,
+    buyer_problem:
+      'They need a repeatable way to turn vague automation requests into scoped tool routes, runnable commands, validation evidence, and safe handoffs.',
+    packaged_goal: goal,
+    interpreted_domain: plan.interpreted_domain,
+    domain_label: plan.domain_label,
+    m2m_surfaces: packageSurfaces,
+    integration_contract: {
+      required_input: {
+        goal: 'Plain-language workflow outcome, not only a tool name.',
+        userType: 'Buyer/operator type or customer segment.',
+        domain: 'Optional explicit domain such as email_docs, social_content, browser_ops, coding, ecommerce_data, research_reporting, knowledge_base, or custom.',
+        risk: 'low, medium, or high. Use high when accounts, publishing, money, identity, production, or irreversible actions are involved.',
+        currentTools: 'Optional list of already available tools, plugins, MCPs, or connectors.'
+      },
+      guaranteed_output_blocks: [
+        'interpreted_domain',
+        'recommended_stack',
+        'execution_phases',
+        'copy_paste_prompt',
+        'validation',
+        'human_boundaries',
+        'account_automation',
+        'permissioned_connector_v1 when account/session work is needed'
+      ],
+      public_mcp_tools: [
+        'design_automation_stack',
+        'generate_no_shell_prompt',
+        'recommend_agent_tools',
+        'audit_automation_plan',
+        'build_validation_pack',
+        'build_customer_intake',
+        'build_m2m_package_contract'
+      ]
+    },
+    delivery_contract: {
+      free_beta_default: 'Keep the MCP/API open while usage signal is weak.',
+      package_to_send: [
+        'README.md',
+        'delivery/01_customer_intake.md',
+        'delivery/02_tool_router.md',
+        'delivery/03_command_cards.md',
+        'delivery/04_result_scorecard.md',
+        'delivery/05_recovery_playbook.md',
+        'delivery/06_permissioned_connector_v1.md',
+        'delivery/07_m2m_package_contract.md',
+        'outreach/public_beta_tracker.md'
+      ],
+      buyer_handoff: [
+        'One workflow goal',
+        'One allowed tool/account scope',
+        'One dry-run sample',
+        'One PASS/WARN/FAIL scorecard',
+        'One recovery path',
+        'One remaining live-action boundary'
+      ],
+      not_included: [
+        'No payment activation',
+        'No customer secrets',
+        'No raw mailbox or cookie export',
+        'No public posting without exact live-action instruction',
+        'No promise that weak beta signals prove willingness to pay'
+      ]
+    },
+    recommended_stack: plan.recommended_stack,
+    permissioned_account_route: plan.account_automation,
+    validation: {
+      preflight: [
+        'Run npm run selfcheck, npm run test, and npm run build before shipping a package change.',
+        'Run npm run collect:beta before paid-positioning decisions.',
+        'Run npm run dogfood:beta after changing packaging, launch, or connector claims.'
+      ],
+      paid_readiness_gates: [
+        'At least 20 real workflow attempts logged.',
+        'At least 3 users say the output made their first automation command clearer.',
+        'At least 2 repeated buyer objections are addressed in the package.',
+        'No live account, payment, or public-posting action is required to test the free package.'
+      ],
+      current_known_risk: 'Public beta demand signal is still baseline/weak until stars, issues, comments, or tracked workflow attempts appear.'
+    },
+    first_next_loop: [
+      'Collect beta signals.',
+      'Dogfood the package against its own launch/feedback workflow.',
+      'Patch the package contract or connector route where the dogfood output is vague.',
+      'Stage one outreach packet without posting unless a live destination is explicitly approved.',
+      'Re-run selfcheck/test/build and record PASS/WARN/FAIL.'
+    ],
+    status: 'ready_for_m2m_dry_run'
   };
 }
 

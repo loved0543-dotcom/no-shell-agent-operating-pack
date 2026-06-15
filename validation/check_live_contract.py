@@ -28,6 +28,7 @@ REQUIRED_TOOLS = {
     "audit_automation_plan",
     "build_validation_pack",
     "build_customer_intake",
+    "build_m2m_package_contract",
 }
 
 
@@ -69,6 +70,13 @@ def check_origin(origin: str, errors: list[str]) -> None:
     remote_url = remotes[0].get("url") if remotes else None
     if remote_url != PRIMARY_MCP_URL:
         errors.append(f"{origin}/server.json remote={remote_url} expected={PRIMARY_MCP_URL}")
+
+    m2m = fetch_json(f"{origin}/api/m2m-package")
+    if m2m.get("package_stage") != "m2m_package_contract_v1":
+        errors.append(f"{origin}/api/m2m-package package_stage={m2m.get('package_stage')}")
+    tools = m2m.get("integration_contract", {}).get("public_mcp_tools", [])
+    if "build_m2m_package_contract" not in tools:
+        errors.append(f"{origin}/api/m2m-package missing build_m2m_package_contract in public_mcp_tools")
 
 
 def check_mcp_tools(errors: list[str]) -> None:

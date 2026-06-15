@@ -1,6 +1,6 @@
 {
   "name": "no-shell-agent-architect-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "Remote MCP/API that turns vague automation requests into tool stacks, prompts, QA checks, and human boundaries.",
   "homepage": "https://ai-automation-operating-pack.vercel.app",

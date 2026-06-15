@@ -36,7 +36,7 @@ Do not add a payment flow during public beta. Future paid packaging should wait 
 <!-- AUTO_PUBLIC_BETA_SIGNALS_START -->
 ## Latest Automated Snapshot
 
-- collected_at: `2026-06-15T12:39:17Z`
+- collected_at: `2026-06-15T15:14:16Z`
 - collector_status: `PASS`
 - beta_signal_status: `WARN` - collector works, but public beta demand signal is still baseline/weak
 - GitHub: stars `0`, forks `0`, subscribers/watchers `0`, open issues `1`

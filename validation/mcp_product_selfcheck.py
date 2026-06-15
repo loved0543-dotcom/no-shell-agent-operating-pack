@@ -14,6 +14,7 @@ REQUIRED = [
     "app/ArchitectClient.tsx",
     "app/api/[transport]/route.ts",
     "app/api/architect/route.ts",
+    "app/api/m2m-package/route.ts",
     "app/api/health/route.ts",
     "lib/architect.ts",
     "lib/catalog.ts",
@@ -30,6 +31,7 @@ REQUIRED = [
     "docs/_evidence/no-shell-agent-architect-mcp.md",
     "docs/MCP_REGISTRATION.md",
     "delivery/06_permissioned_connector_v1.md",
+    "delivery/07_m2m_package_contract.md",
     "outreach/dogfood_public_beta_ops.md",
     "outreach/public_beta_one_channel_launch.md",
     ".github/workflows/monitor-production.yml",
@@ -58,6 +60,7 @@ NEEDLES = {
         "audit_automation_plan",
         "build_validation_pack",
         "build_customer_intake",
+        "build_m2m_package_contract",
     ],
     "lib/architect.ts": [
         "human_boundaries",
@@ -68,6 +71,13 @@ NEEDLES = {
         "FAIL",
         "permissioned_connector_v1",
         "buildPermissionedConnectorRunbook",
+        "buildM2MPackageContract",
+        "m2m_package_contract_v1",
+    ],
+    "app/api/m2m-package/route.ts": [
+        "buildM2MPackageContract",
+        "packageMode",
+        "DEFAULT_GOAL",
     ],
     "app/ArchitectClient.tsx": [
         "Connector v1 runbook",
@@ -99,6 +109,12 @@ NEEDLES = {
         "Gmail Connector V1",
         "Community Connector V1",
         "Action Ledger Schema",
+    ],
+    "delivery/07_m2m_package_contract.md": [
+        "M2M Package Contract",
+        "m2m_package_contract_v1",
+        "Paid Readiness Gates",
+        "/api/m2m-package",
     ],
     "outreach/dogfood_public_beta_ops.md": [
         "Dogfood Public Beta Ops",

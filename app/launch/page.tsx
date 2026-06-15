@@ -1,4 +1,5 @@
 const endpoint = 'https://ai-automation-operating-pack.vercel.app/api/mcp';
+const m2mPackage = 'https://ai-automation-operating-pack.vercel.app/api/m2m-package';
 const feedbackIssue = 'https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1';
 
 export const metadata = {
@@ -34,6 +35,10 @@ export default function LaunchPage() {
           <code>{endpoint}</code>
         </article>
         <article>
+          <span>M2M package contract</span>
+          <code>{m2mPackage}</code>
+        </article>
+        <article>
           <span>Best for</span>
           <p>Codex, Claude, ChatGPT, Gemini, Cursor, and automation users who do not know which tools to connect first.</p>
         </article>
@@ -60,6 +65,14 @@ export default function LaunchPage() {
           I built a remote MCP for people who know agents can automate work, but keep getting code or dashboards that
           look done and do not actually run the workflow. It returns the tool route, permissioned account route, command,
           dry-run, QA checks, recovery route, and live-action boundary before the agent starts building.
+        </p>
+      </section>
+
+      <section className="copy-block">
+        <h2>Integrator copy</h2>
+        <p>
+          Agencies, SaaS builders, and other agents can call the M2M package contract to get the public MCP/API surfaces,
+          required inputs, guaranteed output blocks, delivery artifacts, paid-readiness gates, and the current beta-signal risk.
         </p>
       </section>
     </main>

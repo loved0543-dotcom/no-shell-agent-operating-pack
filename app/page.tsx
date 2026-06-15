@@ -8,6 +8,7 @@ export default function Page() {
           <strong>No-Shell Agent Architect</strong>
           <span>
             <a href="/api/health">Health</a>
+            <a href="/api/m2m-package">M2M package</a>
             <a href="/launch">Launch</a>
             <a href="/server.json">server.json</a>
             <a href="https://github.com/loved0543-dotcom/no-shell-agent-operating-pack">GitHub</a>
@@ -64,7 +65,8 @@ export default function Page() {
             ['recommend_agent_tools', 'Choose plugins, MCPs, skills, permissioned account routes, and live-action boundaries for the job.'],
             ['audit_automation_plan', 'Score an existing plan for shell-risk and missing execution pieces.'],
             ['build_validation_pack', 'Return dry-run, QA, audit, and PASS criteria.'],
-            ['build_customer_intake', 'Generate a 10-minute intake for non-developers.']
+            ['build_customer_intake', 'Generate a 10-minute intake for non-developers.'],
+            ['build_m2m_package_contract', 'Return MCP/API surfaces, delivery artifacts, buyer handoff, and paid-readiness gates for package integrators.']
           ].map(([name, desc]) => (
             <article key={name}>
               <h3>{name}</h3>

@@ -18,6 +18,7 @@ It takes a plain-language automation goal and returns:
 - QA and audit checks;
 - recovery guidance;
 - permissioned account routes and live-action boundaries for secrets, accounts, payments, publishing, and irreversible actions.
+- a machine-readable M2M package contract for agencies, SaaS builders, and other agents that need to integrate the operating pack.
 
 Local API preview:
 
@@ -54,6 +55,12 @@ Public beta feedback:
 
 ```text
 https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1
+```
+
+Machine-readable M2M package contract:
+
+```text
+https://ai-automation-operating-pack.vercel.app/api/m2m-package
 ```
 
 Official MCP Registry:
@@ -99,6 +106,7 @@ Client config:
 - Result scorecard for catching fake completion.
 - Recovery playbook: fix the upstream cause instead of stopping at one more gate.
 - Permissioned connector v1 contract for Gmail/community account automation without password, cookie, or posting bypass.
+- M2M package contract for MCP/API integrators, agencies, and builders.
 - Validation tracker for a 20-person usefulness test.
 - Public beta signal tracker for stars, issues, shares, and workflow feedback.
 - Local landing mockup, PDF exports, and ZIP packages.
@@ -144,6 +152,14 @@ npm run check:beta-ops
 ```
 
 This writes `outreach/dogfood_public_beta_ops.md`, stages one public feedback post packet in `outreach/public_beta_one_channel_launch.md`, and verifies the action ledger and permissioned connector v1 contract.
+
+For agent-to-agent or agency packaging, call the M2M package contract:
+
+```powershell
+Invoke-RestMethod -Method Get -Uri https://ai-automation-operating-pack.vercel.app/api/m2m-package
+```
+
+This returns the MCP/API surfaces, required input schema, guaranteed output blocks, delivery artifacts, paid-readiness gates, and the current beta-signal risk.
 
 ## Validation
 

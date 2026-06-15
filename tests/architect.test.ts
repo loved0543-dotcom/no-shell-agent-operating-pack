@@ -3,6 +3,7 @@ import {
   auditAutomationPlan,
   buildPermissionedConnectorRunbook,
   buildCustomerIntake,
+  buildM2MPackageContract,
   designAutomationStack,
   generateNoShellPrompt,
   recommendAgentTools
@@ -87,5 +88,21 @@ describe('No-Shell Agent Architect', () => {
   it('builds customer intake questions', () => {
     const intake = buildCustomerIntake('Clean Obsidian notes');
     expect(intake.questions.length).toBeGreaterThanOrEqual(6);
+  });
+
+  it('builds a machine-readable M2M package contract', () => {
+    const contract = buildM2MPackageContract({
+      goal: 'Package a permissioned Gmail automation workflow for an agency client.',
+      buyerType: 'AI automation agency',
+      domain: 'email_docs',
+      packageMode: 'agency_workbench',
+      risk: 'high'
+    });
+    expect(contract.package_stage).toBe('m2m_package_contract_v1');
+    expect(contract.integration_contract.public_mcp_tools).toContain('build_m2m_package_contract');
+    expect(contract.m2m_surfaces.some((surface) => surface.surface === 'm2m_package_api')).toBe(true);
+    expect(contract.delivery_contract.package_to_send).toContain('delivery/07_m2m_package_contract.md');
+    expect(contract.permissioned_account_route.status).toBe('permissioned_connector_required');
+    expect(contract.validation.current_known_risk).toContain('baseline/weak');
   });
 });

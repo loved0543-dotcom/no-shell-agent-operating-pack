@@ -11,6 +11,7 @@ Free public beta. Local delivery package complete. MCP/API product added. No pay
 - `app/page.tsx`
 - `app/api/[transport]/route.ts`
 - `app/api/architect/route.ts`
+- `app/api/m2m-package/route.ts`
 - `app/api/health/route.ts`
 - `lib/architect.ts`
 - `lib/catalog.ts`
@@ -19,6 +20,7 @@ Free public beta. Local delivery package complete. MCP/API product added. No pay
 - `public/llms.txt`
 - `docs/_evidence/no-shell-agent-architect-mcp.md`
 - `docs/MCP_REGISTRATION.md`
+- `delivery/07_m2m_package_contract.md`
 - `tests/architect.test.ts`
 - `validation/mcp_product_selfcheck.py`
 
@@ -34,6 +36,8 @@ Free public beta. Local delivery package complete. MCP/API product added. No pay
 - `delivery/03_command_cards.md`
 - `delivery/04_result_scorecard.md`
 - `delivery/05_recovery_playbook.md`
+- `delivery/06_permissioned_connector_v1.md`
+- `delivery/07_m2m_package_contract.md`
 - `offer/sales_page.md`
 - `offer/pricing_and_gtm.md`
 - `offer/platform_listing_copy.md`

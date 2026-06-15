@@ -6,6 +6,7 @@ Use these URLs for docs, registries, and client setup:
 
 - Live app: https://ai-automation-operating-pack.vercel.app
 - Remote MCP: https://ai-automation-operating-pack.vercel.app/api/mcp
+- M2M package contract: https://ai-automation-operating-pack.vercel.app/api/m2m-package
 - Server metadata: https://ai-automation-operating-pack.vercel.app/server.json
 - Registry search: https://registry.modelcontextprotocol.io/v0/servers?search=no-shell-agent-architect-mcp
 
@@ -40,7 +41,7 @@ The monitor uses no secrets. It fails if:
 - `/api/health` is not healthy.
 - `/server.json` is not the expected version.
 - either URL points at stale MCP metadata.
-- `tools/list` is missing one of the six public MCP tools.
+- `tools/list` is missing one of the seven public MCP tools.
 - the official Registry latest entry points at the wrong remote URL.
 
 ## Compatibility alias recovery
@@ -88,3 +89,5 @@ npm run check:beta-ops
 The dogfood run calls the public Architect API with the beta-operations workflow and writes `outreach/dogfood_public_beta_ops.md`. The first public-inflow target is staged in `outreach/public_beta_one_channel_launch.md`, and every staged/live boundary is recorded in `outreach/public_beta_action_ledger.md`.
 
 Permissioned account connector v1 is documented in `delivery/06_permissioned_connector_v1.md`. Gmail and community workflows stay read-only or draft/staged by default; live send/post/submit requires the exact platform, destination, final copy, and logged-in owner session.
+
+M2M package contract v1 is documented in `delivery/07_m2m_package_contract.md`. Use `/api/m2m-package` when another agent, agency, or SaaS builder needs a machine-readable contract instead of a human-only package.

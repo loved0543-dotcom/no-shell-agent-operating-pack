@@ -60,7 +60,7 @@ Stdio-only clients can use `mcp-remote`:
 Name: No-Shell Agent Architect MCP
 
 Description:
-Turns vague automation requests into tool stacks, permissioned account routes, prompts, QA checks, and live-action boundaries.
+Turns vague automation requests into tool stacks, permissioned account routes, prompts, QA checks, live-action boundaries, and M2M package contracts.
 
 Repository:
 https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
@@ -77,5 +77,7 @@ npm run check:live
 ```
 
 This verifies the canonical endpoint, compatibility alias, MCP `tools/list`, and official Registry latest entry.
+
+The public tool list includes `build_m2m_package_contract` for agencies, SaaS builders, and other agents that need a machine-readable integration and delivery contract.
 
 The old compatibility URL `https://no-shell-agent-architect-mcp.vercel.app` may be used only for previously shared links. New submissions should use the canonical `ai-automation-operating-pack.vercel.app` URL.
