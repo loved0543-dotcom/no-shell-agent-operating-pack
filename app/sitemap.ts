@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const base = 'https://no-shell-agent-architect-mcp.vercel.app';
+const base = 'https://ai-automation-operating-pack.vercel.app';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

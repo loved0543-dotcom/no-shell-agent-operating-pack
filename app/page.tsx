@@ -23,7 +23,7 @@ export default function Page() {
           <div className="cta-row">
             <a className="button" href="#architect">Try the architect</a>
             <a className="button secondary" href="/launch">Launch kit</a>
-            <code>https://no-shell-agent-architect-mcp.vercel.app/api/mcp</code>
+            <code>https://ai-automation-operating-pack.vercel.app/api/mcp</code>
           </div>
         </section>
       </header>

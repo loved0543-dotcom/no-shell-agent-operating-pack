@@ -11,7 +11,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://no-shell-agent-architect-mcp.vercel.app/api/mcp"
+      "url": "https://ai-automation-operating-pack.vercel.app/api/mcp"
     }
   ]
 }

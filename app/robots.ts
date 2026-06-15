@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/'
     },
-    sitemap: 'https://no-shell-agent-architect-mcp.vercel.app/sitemap.xml'
+    sitemap: 'https://ai-automation-operating-pack.vercel.app/sitemap.xml'
   };
 }

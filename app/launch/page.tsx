@@ -1,4 +1,4 @@
-const endpoint = 'https://no-shell-agent-architect-mcp.vercel.app/api/mcp';
+const endpoint = 'https://ai-automation-operating-pack.vercel.app/api/mcp';
 
 export const metadata = {
   title: 'Launch Kit - No-Shell Agent Architect MCP',

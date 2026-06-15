@@ -5,7 +5,7 @@
 Remote MCP endpoint:
 
 ```text
-https://no-shell-agent-architect-mcp.vercel.app/api/mcp
+https://ai-automation-operating-pack.vercel.app/api/mcp
 ```
 
 ## Registry status
@@ -32,7 +32,7 @@ Streamable HTTP:
 {
   "mcpServers": {
     "no-shell-agent-architect": {
-      "url": "https://no-shell-agent-architect-mcp.vercel.app/api/mcp"
+      "url": "https://ai-automation-operating-pack.vercel.app/api/mcp"
     }
   }
 }
@@ -45,7 +45,7 @@ Stdio-only clients can use `mcp-remote`:
   "mcpServers": {
     "no-shell-agent-architect": {
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://no-shell-agent-architect-mcp.vercel.app/api/mcp"]
+      "args": ["-y", "mcp-remote", "https://ai-automation-operating-pack.vercel.app/api/mcp"]
     }
   }
 }
@@ -62,4 +62,4 @@ Repository:
 https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
 Remote:
-https://no-shell-agent-architect-mcp.vercel.app/api/mcp
+https://ai-automation-operating-pack.vercel.app/api/mcp

@@ -33,19 +33,19 @@ http://localhost:3000
 Remote MCP endpoint after deployment:
 
 ```text
-https://no-shell-agent-architect-mcp.vercel.app/api/mcp
+https://ai-automation-operating-pack.vercel.app/api/mcp
 ```
 
 Live demo:
 
 ```text
-https://no-shell-agent-architect-mcp.vercel.app
+https://ai-automation-operating-pack.vercel.app
 ```
 
 Launch kit:
 
 ```text
-https://no-shell-agent-architect-mcp.vercel.app/launch
+https://ai-automation-operating-pack.vercel.app/launch
 ```
 
 Official MCP Registry:
@@ -60,7 +60,7 @@ Client config:
 {
   "mcpServers": {
     "no-shell-agent-architect": {
-      "url": "https://no-shell-agent-architect-mcp.vercel.app/api/mcp"
+      "url": "https://ai-automation-operating-pack.vercel.app/api/mcp"
     }
   }
 }

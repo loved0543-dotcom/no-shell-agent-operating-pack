@@ -2,7 +2,7 @@ import './style.css';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
-const siteUrl = 'https://no-shell-agent-architect-mcp.vercel.app';
+const siteUrl = 'https://ai-automation-operating-pack.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

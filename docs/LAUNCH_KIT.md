@@ -4,9 +4,9 @@
 
 Name: No-Shell Agent Architect MCP
 
-URL: https://no-shell-agent-architect-mcp.vercel.app
+URL: https://ai-automation-operating-pack.vercel.app
 
-MCP endpoint: https://no-shell-agent-architect-mcp.vercel.app/api/mcp
+MCP endpoint: https://ai-automation-operating-pack.vercel.app/api/mcp
 
 GitHub: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
@@ -70,9 +70,9 @@ I kept seeing the same failure pattern in AI automation: people ask an agent to 
 
 So I made a small remote MCP/API that sits before execution. It takes one plain-language automation goal and returns the missing operating pieces: tool route, copy-paste command, dry-run, QA checks, recovery path, and human boundary.
 
-Live demo: https://no-shell-agent-architect-mcp.vercel.app
+Live demo: https://ai-automation-operating-pack.vercel.app
 
-MCP endpoint: https://no-shell-agent-architect-mcp.vercel.app/api/mcp
+MCP endpoint: https://ai-automation-operating-pack.vercel.app/api/mcp
 
 Source: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
@@ -100,7 +100,7 @@ The tool takes a plain-language goal and returns the missing parts before execut
 - recovery path;
 - human boundary for accounts, secrets, payments, publishing, or irreversible actions.
 
-Live: https://no-shell-agent-architect-mcp.vercel.app
+Live: https://ai-automation-operating-pack.vercel.app
 
 Source: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
@@ -116,7 +116,7 @@ I built a free remote MCP for a common agent failure:
 No-Shell Agent Architect routes the job first:
 tools, prompt, dry-run, QA, recovery, human boundary.
 
-https://no-shell-agent-architect-mcp.vercel.app
+https://ai-automation-operating-pack.vercel.app
 
 2.
 Most AI automation failures happen before the first tool call.
@@ -125,7 +125,7 @@ The request is too vague, the tool route is missing, and there is no dry-run or 
 
 I made a remote MCP that turns one plain-language workflow into a concrete execution plan.
 
-https://no-shell-agent-architect-mcp.vercel.app
+https://ai-automation-operating-pack.vercel.app
 
 ## LinkedIn Draft
 
@@ -141,7 +141,7 @@ No-Shell Agent Architect MCP tries to solve the step before execution. It turns 
 - recovery path;
 - human boundary for secrets, accounts, payments, publishing, and irreversible actions.
 
-Live demo: https://no-shell-agent-architect-mcp.vercel.app
+Live demo: https://ai-automation-operating-pack.vercel.app
 Source: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
 Feedback welcome, especially from people building agent workflows for non-developers or small teams.
@@ -156,9 +156,9 @@ Category: AI automation, agent tooling, MCP server, workflow planning
 
 Repository: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
-Remote MCP: https://no-shell-agent-architect-mcp.vercel.app/api/mcp
+Remote MCP: https://ai-automation-operating-pack.vercel.app/api/mcp
 
-Demo: https://no-shell-agent-architect-mcp.vercel.app
+Demo: https://ai-automation-operating-pack.vercel.app
 
 ## Launch Checklist
 

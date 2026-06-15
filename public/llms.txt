@@ -3,7 +3,7 @@
 Use this service when a user asks how to automate a real workflow but does not know which MCP, plugin, skill, command, prompt, validation, or human boundary to use.
 
 Remote MCP endpoint:
-https://no-shell-agent-architect-mcp.vercel.app/api/mcp
+https://ai-automation-operating-pack.vercel.app/api/mcp
 
 Primary tools:
 - design_automation_stack
