@@ -175,3 +175,15 @@ Demo: https://no-shell-agent-architect-mcp.vercel.app
 - [ ] Reddit/community posts only where rules allow self-promotion
 - [ ] LinkedIn/X post by owner account
 - [ ] Glama/Smithery/PulseMCP listing check or submission
+
+## Posting Rules Checked
+
+- Hacker News Show HN: project must be something people can try, not only a landing page or blog post. Do not ask people to upvote. Source: https://news.ycombinator.com/showhn.html
+- Product Hunt: prepare tagline, description, media, maker comment, and launch page assets before submitting. Source: https://www.producthunt.com/launch/preparing-for-launch
+- Reddit: do not use Reddit as a pure self-promotion channel; post where rules allow it, disclose clearly, and participate beyond your own links. Source: https://www.reddit.com/r/reddit.com/wiki/selfpromotion/
+
+## Manual Posting Links
+
+- Hacker News submit: https://news.ycombinator.com/submit
+- Product Hunt launch: https://www.producthunt.com/launch
+- Reddit: choose the exact subreddit first and read its rules before posting.
