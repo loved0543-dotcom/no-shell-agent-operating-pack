@@ -4,7 +4,7 @@
 No-Shell Agent Operating Pack
 
 ## Status
-Local delivery package complete. MCP/API product added. No payment connection enabled.
+Free public beta. Local delivery package complete. MCP/API product added. No payment connection enabled.
 
 ## MCP/API product files
 - `package.json`
@@ -41,6 +41,8 @@ Local delivery package complete. MCP/API product added. No payment connection en
 - `outreach/message_templates.md`
 - `outreach/validation_tracker.csv`
 - `outreach/validation_tracker.md`
+- `outreach/public_beta_tracker.csv`
+- `outreach/public_beta_tracker.md`
 - `visual/hero_workflow_mockup.html`
 - `visual/free_diagnostic_card.html`
 - `visual/before_after_demo.html`

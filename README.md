@@ -8,6 +8,8 @@ This is not a prompt-pack that promises magic. It is a plain-language operating 
 
 This repository now also ships a remote MCP/API product: **No-Shell Agent Architect MCP**.
 
+Current launch mode: **free public beta**. There is no payment flow, usage gate, paid API call, or private customer data collection in this version. The goal is to observe GitHub stars, issues, workflow feedback, and real usage before deciding whether a paid version should exist later.
+
 It takes a plain-language automation goal and returns:
 
 - the recommended MCP/plugin/skill/tool stack;
@@ -83,7 +85,7 @@ Client config:
 ## What's included
 
 - Free diagnostic: 10 reasons AI automations become empty shells.
-- Starter pack: Email and document automation workflow.
+- Free beta starter pack: Email and document automation workflow.
 - Before/After demo: a shallow command vs a no-shell operating command.
 - Customer intake sheet.
 - Tool/router sheet for choosing agents, plugins, skills, MCP, browser, documents, spreadsheets, or manual review.
@@ -91,6 +93,7 @@ Client config:
 - Result scorecard for catching fake completion.
 - Recovery playbook: fix the upstream cause instead of stopping at one more gate.
 - Validation tracker for a 20-person usefulness test.
+- Public beta signal tracker for stars, issues, shares, and workflow feedback.
 - Local landing mockup, PDF exports, and ZIP packages.
 
 ## Quick start
@@ -111,6 +114,7 @@ Client config:
 - Customer ZIP: `dist/no-shell-agent-operating-pack-starter-v1.zip`
 - Workbench ZIP: `dist/no-shell-agent-operating-pack-workbench-v1.zip`
 - Validation tracker: `outreach/validation_tracker.csv`
+- Public beta tracker: `outreach/public_beta_tracker.csv`
 
 ## Validation
 
@@ -151,9 +155,9 @@ Deployment, monitoring, compatibility alias recovery, and post-deploy checks are
 
 ## Current status
 
-This repository is public and open source. It is early-stage and still needs real external validation. The local package is complete enough to show to users, but market demand is not proven until the 20-person validation tracker has real responses.
+This repository is public, open source, and free to use as a public beta. It is early-stage and still needs real external validation. The product is complete enough to show to users, but demand is not proven until public usage signals and the validation trackers have real responses.
 
-No payment connection, storefront publish, account login, secret, or private customer data is included in this repository.
+No payment connection, storefront publish, account login, secret, or private customer data is included in this repository. Future paid packaging is intentionally postponed until there is clear usage and feedback.
 
 ## License
 

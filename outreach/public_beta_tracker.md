@@ -1,0 +1,32 @@
+# Public Beta Signal Tracker
+
+## Purpose
+
+Track whether the free public beta attracts real interest before any paid packaging is considered.
+
+## What To Track
+
+- GitHub stars, watchers, forks, and issue activity.
+- Real workflow examples people tried.
+- Repeated domain requests.
+- Repeated objections: too abstract, hard to connect, unclear output, missing examples, missing domain coverage.
+- Public comments from launch posts, directories, or communities.
+
+## CSV Fields
+
+- `source`: GitHub, MCP Registry, Product Hunt, Hacker News, Reddit, LinkedIn, X, direct message, or directory.
+- `signal_type`: star, issue, comment, share, fork, workflow_try, integration_request, objection.
+- `workflow_domain`: email_docs, research_reporting, social_content, ecommerce_data, knowledge_base, browser_ops, coding, or other.
+- `main_feedback`: the shortest honest summary of what they said.
+- `next_action`: docs fix, tool output fix, example needed, domain support, no action, follow up.
+- `status`: watching, responded, converted_to_issue, fixed, rejected, stale.
+
+## Public Beta Decision Rules
+
+- PASS: people open issues with real workflows, or repeated stars/shares come from relevant agent automation users.
+- WARN: people star it but do not try workflows or ask for examples.
+- FAIL: people cannot tell what it does, or all feedback says it is just another prompt checklist.
+
+## Paid Version Boundary
+
+Do not add a payment flow during public beta. Future paid packaging should wait until there is repeated evidence that users want either domain packs, workflow audits, or hosted team features.

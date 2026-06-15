@@ -60,4 +60,6 @@ python validation/check_live_contract.py
 
 ## Launch boundary
 
-Launch drafts are in `docs/LAUNCH_KIT.md`. Codex may prepare copy and verify links, but public posting to Product Hunt, Hacker News, Reddit, LinkedIn, or X must be done by the logged-in owner account after checking each community's rules.
+Launch drafts are in `docs/LAUNCH_KIT.md`. Current launch mode is free public beta: no payment flow, storefront, paid API, or account collection. Codex may prepare copy and verify links, but public posting to Product Hunt, Hacker News, Reddit, LinkedIn, or X must be done by the logged-in owner account after checking each community's rules.
+
+Track public signals in `outreach/public_beta_tracker.csv`: stars, issues, comments, shares, real workflow examples, and repeated objections.

@@ -1,0 +1,56 @@
+name: Public beta workflow feedback
+description: Share the workflow you tried and whether the MCP output was useful.
+title: "[Feedback]: "
+labels: ["feedback", "public-beta"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for trying the free public beta. Do not include secrets, private customer data, API keys, cookies, or account credentials.
+  - type: textarea
+    id: workflow
+    attributes:
+      label: What workflow did you try?
+      description: Describe the automation goal in plain language.
+      placeholder: "Example: Turn competitor website notes into an Obsidian summary and client report."
+    validations:
+      required: true
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      options:
+        - email_docs
+        - research_reporting
+        - social_content
+        - ecommerce_data
+        - knowledge_base
+        - browser_ops
+        - coding
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What did the MCP return that was useful or not useful?
+      placeholder: "Useful: ... / Missing: ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Would you use this again?
+      options:
+        - yes
+        - maybe
+        - no
+    validations:
+      required: true
+  - type: textarea
+    id: next
+    attributes:
+      label: What should be improved first?
+      placeholder: "Connection steps, more concrete prompts, another domain, shorter output, examples, etc."
+    validations:
+      required: false

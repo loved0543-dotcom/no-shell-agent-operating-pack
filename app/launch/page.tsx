@@ -9,15 +9,17 @@ export default function LaunchPage() {
   return (
     <main className="launch">
       <section className="launch-hero">
-        <p className="eyebrow">Launch kit</p>
-        <h1>No-Shell Agent Architect MCP launch kit</h1>
+        <p className="eyebrow">Free public beta launch kit</p>
+        <h1>No-Shell Agent Architect MCP is free to test.</h1>
         <p className="lead">
           A free remote MCP that turns a vague automation request into a concrete tool stack, copy-paste agent command,
-          dry-run plan, QA checks, recovery route, and human boundary.
+          dry-run plan, QA checks, recovery route, and human boundary. No payment flow is active; stars, issues, and
+          workflow feedback decide what should become paid later.
         </p>
         <div className="cta-row">
           <a className="button" href="/">Try the live architect</a>
           <a className="button secondary" href="https://github.com/loved0543-dotcom/no-shell-agent-operating-pack">GitHub</a>
+          <a className="button secondary" href="https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues">Feedback</a>
         </div>
       </section>
 
@@ -33,6 +35,10 @@ export default function LaunchPage() {
         <article>
           <span>Best for</span>
           <p>Codex, Claude, ChatGPT, Gemini, Cursor, and automation users who do not know which tools to connect first.</p>
+        </article>
+        <article>
+          <span>Launch mode</span>
+          <p>Free public beta. Use it, star it, open an issue, or share the workflow where it helped or failed.</p>
         </article>
       </section>
 

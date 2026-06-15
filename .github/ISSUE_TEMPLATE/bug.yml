@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a broken endpoint, MCP response, or documentation issue.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not paste secrets, API keys, cookies, private transcripts, or customer data.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What broke?
+      placeholder: "Endpoint, client setup, docs, MCP response, live site, etc."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How can it be reproduced?
+      placeholder: "Steps, input, client, URL, or command."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: false
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: "Client/app, OS, browser, MCP client, timestamp."
+    validations:
+      required: false

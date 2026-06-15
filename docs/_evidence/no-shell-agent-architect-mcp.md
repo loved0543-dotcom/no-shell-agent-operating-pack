@@ -28,8 +28,10 @@ Sources:
 
 ## 3. Willingness-To-Pay Evidence
 
-This is still a market hypothesis, not proven revenue. The evidence is category-level: people already pay for automation platforms, templates, and agent tooling, but many fail at the "what should I ask and what tools should I use" layer. The first paid route should be low-friction:
-- free MCP/API preview
+This is still a market hypothesis, not proven revenue. The current launch mode is free public beta. The evidence is category-level: people already pay for automation platforms, templates, and agent tooling, but many fail at the "what should I ask and what tools should I use" layer. Paid packaging should wait until stars, issues, and real workflow feedback show repeated demand.
+
+Future paid route hypothesis:
+- free MCP/API preview stays open as top-of-funnel
 - $29 starter operating pack
 - $99 multi-workflow bundle
 - $300 custom workflow audit
@@ -53,11 +55,11 @@ First hook:
 
 ## 6. Price Ladder
 
-1. Free: remote MCP/API preview and diagnostic card.
-2. Starter: $29 one workflow operating pack.
-3. Bundle: $99 five workflow packs.
-4. Custom audit: $300 one client workflow turned into a tested automation design.
-5. Enterprise/agency: custom internal router catalog if real usage appears.
+1. Free public beta: remote MCP/API preview and diagnostic card.
+2. Future Starter: $29 one workflow operating pack.
+3. Future Bundle: $99 five workflow packs.
+4. Future Custom audit: $300 one client workflow turned into a tested automation design.
+5. Future Enterprise/agency: custom internal router catalog if real usage appears.
 
 ## 7. Kill Criteria
 

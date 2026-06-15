@@ -4,6 +4,8 @@
 
 Name: No-Shell Agent Architect MCP
 
+Launch mode: free public beta. No payment flow is active.
+
 URL: https://ai-automation-operating-pack.vercel.app
 
 MCP endpoint: https://ai-automation-operating-pack.vercel.app/api/mcp
@@ -20,7 +22,7 @@ Use the canonical URL in every new post, directory listing, screenshot, and clie
 
 Most agent automation fails before the first tool call. The user says "automate this", and the agent builds files or UI that look done but do not complete the real workflow.
 
-No-Shell Agent Architect MCP is the pre-execution router: it turns one vague automation request into the practical tool stack, copy-paste command, dry-run, QA/audit checks, recovery path, and human boundary.
+No-Shell Agent Architect MCP is the pre-execution router: it turns one vague automation request into the practical tool stack, copy-paste command, dry-run, QA/audit checks, recovery path, and human boundary. It is currently free to test while usage signals and feedback are collected.
 
 ## Short Descriptions
 
@@ -44,7 +46,7 @@ Turn "automate this" into a real agent workflow.
 
 ### Description
 
-No-Shell Agent Architect MCP is a free remote MCP/API for people who use Codex, Claude, ChatGPT, Gemini, Cursor, or similar agents but keep getting automation outputs that look finished and do not actually run the workflow.
+No-Shell Agent Architect MCP is a free public beta remote MCP/API for people who use Codex, Claude, ChatGPT, Gemini, Cursor, or similar agents but keep getting automation outputs that look finished and do not actually run the workflow.
 
 It takes a plain-language automation goal and returns:
 - recommended tools, MCPs, plugins, and skills;
@@ -61,6 +63,8 @@ I built this because "make this automated" is too vague for an agent. The model 
 This MCP tries to sit before execution. It helps the agent decide the operating route first, then build.
 
 I would love feedback on whether this is more useful as an MCP, a static checklist, or both.
+
+There is no paid plan right now. I am watching stars, issues, and real workflow examples before deciding what should become paid later.
 
 ## Show HN Draft
 
@@ -80,6 +84,8 @@ MCP endpoint: https://ai-automation-operating-pack.vercel.app/api/mcp
 
 Source: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
+It is free during this public beta. Stars, issues, and workflow feedback are the main signals I am watching.
+
 I would like feedback on two things:
 1. Is this useful as an MCP tool, or should it just be a static checklist?
 2. Which automation domains should be covered first: docs, browser ops, coding, research, or knowledge bases?
@@ -90,7 +96,7 @@ Use only where self-promotion is allowed. Prefer asking for feedback, not claimi
 
 Title:
 
-I built a free MCP that turns vague automation requests into a concrete agent workflow
+I built a free public beta MCP that turns vague automation requests into a concrete agent workflow
 
 Body:
 
@@ -108,12 +114,12 @@ Live: https://ai-automation-operating-pack.vercel.app
 
 Source: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
-I am trying to figure out whether this is useful as an MCP, or if people would rather have the same logic as a checklist/template. Feedback is welcome.
+I am trying to figure out whether this is useful as an MCP, or if people would rather have the same logic as a checklist/template. It is free during public beta; feedback is welcome.
 
 ## X / Twitter Drafts
 
 1.
-I built a free remote MCP for a common agent failure:
+I launched a free public beta remote MCP for a common agent failure:
 
 "Automate this" -> agent builds files/UI -> workflow still does not actually work.
 
@@ -133,7 +139,7 @@ https://ai-automation-operating-pack.vercel.app
 
 ## LinkedIn Draft
 
-I built a small free MCP/API for a practical AI automation problem.
+I launched a small free public beta MCP/API for a practical AI automation problem.
 
 Many people now know ChatGPT, Claude, Codex, Gemini, Cursor, and similar tools can automate work. But the first command is often too vague: "automate this." The result can be a script, a dashboard, or a folder structure that looks finished while the actual workflow still does not run.
 
@@ -148,7 +154,7 @@ No-Shell Agent Architect MCP tries to solve the step before execution. It turns 
 Live demo: https://ai-automation-operating-pack.vercel.app
 Source: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
-Feedback welcome, especially from people building agent workflows for non-developers or small teams.
+Feedback welcome, especially from people building agent workflows for non-developers or small teams. There is no paid plan active yet; I am collecting stars, issues, and real use cases first.
 
 ## Directory Submission Copy
 
@@ -157,6 +163,8 @@ Name: No-Shell Agent Architect MCP
 Description: Turns vague automation requests into tool stacks, prompts, QA checks, and human boundaries.
 
 Category: AI automation, agent tooling, MCP server, workflow planning
+
+Launch mode: Free public beta
 
 Repository: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
@@ -177,6 +185,7 @@ Demo: https://ai-automation-operating-pack.vercel.app
 - [x] GitHub-to-Vercel production auto-deploy
 - [x] Compatibility alias refreshed for old links
 - [x] Production contract monitor workflow
+- [x] Free public beta copy
 - [ ] Product Hunt post by logged-in maker
 - [ ] Hacker News Show HN post by logged-in account
 - [ ] Reddit/community posts only where rules allow self-promotion
@@ -211,3 +220,11 @@ Expected:
 - Reddit: choose the exact subreddit first and read its rules before posting.
 
 Do not auto-post from automation. These links require the owner's logged-in account and a final community-rule check.
+
+## Signals To Watch
+
+- GitHub stars and watchers
+- GitHub issues with real workflow examples
+- Registry/directory discovery
+- People who try the MCP endpoint and ask for another domain
+- Repeated objections: too abstract, hard to connect, unclear output, missing domain coverage

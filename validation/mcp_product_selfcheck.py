@@ -30,6 +30,8 @@ REQUIRED = [
     "docs/_evidence/no-shell-agent-architect-mcp.md",
     "docs/MCP_REGISTRATION.md",
     ".github/workflows/monitor-production.yml",
+    ".github/ISSUE_TEMPLATE/workflow-feedback.yml",
+    ".github/ISSUE_TEMPLATE/bug.yml",
     "validation/check_live_contract.py",
     "tests/architect.test.ts",
 ]
@@ -74,6 +76,7 @@ NEEDLES = {
         "LinkedIn Draft",
         "Directory Submission Copy",
         "Pre-Post Verification",
+        "Signals To Watch",
     ],
     "docs/OPERATIONS.md": [
         "Canonical endpoints",
@@ -84,6 +87,11 @@ NEEDLES = {
     ".github/workflows/monitor-production.yml": [
         "Monitor Production Contract",
         "validation/check_live_contract.py",
+    ],
+    ".github/ISSUE_TEMPLATE/workflow-feedback.yml": [
+        "Public beta workflow feedback",
+        "What workflow did you try?",
+        "Would you use this again?",
     ],
 }
 

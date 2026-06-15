@@ -1,0 +1,9 @@
+date,source,signal_type,handle_or_org,workflow_domain,workflow_summary,starred,opened_issue,shared_link,main_feedback,next_action,status
+,GitHub,star,,,,,,,,watching
+,GitHub,issue,,,,,,,,watching
+,MCP Registry,discovery,,,,,,,,watching
+,Hacker News,comment,,,,,,,,not_posted
+,Product Hunt,comment,,,,,,,,not_posted
+,Reddit,comment,,,,,,,,not_posted
+,LinkedIn,comment,,,,,,,,not_posted
+,X,comment,,,,,,,,not_posted

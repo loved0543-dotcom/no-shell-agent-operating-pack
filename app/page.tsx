@@ -14,7 +14,7 @@ export default function Page() {
           </span>
         </nav>
         <section>
-          <p className="eyebrow">Remote MCP + API for practical AI automation design</p>
+          <p className="eyebrow">Free public beta · Remote MCP + API for practical AI automation design</p>
           <h1>Turn “automate this” into a real agent workflow.</h1>
           <p className="lead">
             Most agent requests fail because they skip tool routing, inputs, human boundaries, and QA. This MCP returns
@@ -22,6 +22,7 @@ export default function Page() {
           </p>
           <div className="cta-row">
             <a className="button" href="#architect">Try the architect</a>
+            <a className="button secondary" href="https://github.com/loved0543-dotcom/no-shell-agent-operating-pack">Star / feedback</a>
             <a className="button secondary" href="/launch">Launch kit</a>
             <code>https://ai-automation-operating-pack.vercel.app/api/mcp</code>
           </div>
@@ -43,6 +44,11 @@ export default function Page() {
           <span>Standard</span>
           <b>No-shell validation</b>
           <p>PASS only when the workflow reaches a usable sample result with evidence.</p>
+        </div>
+        <div>
+          <span>Status</span>
+          <b>Free public beta</b>
+          <p>No payment flow. Feedback, issues, stars, and real workflow examples decide the next version.</p>
         </div>
       </section>
 

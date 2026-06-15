@@ -20,25 +20,24 @@ ChatGPT, Claude, Codex, Gemini를 이미 써봤지만 자동화 결과가 실제
 - No-Shell 결과 검증표
 - 실패복구 플레이북
 
-## 추천 가격
-- Free diagnostic: $0
-- Starter: $29
-- Bundle later: $99
-- Custom audit later: $300
+## 현재 공개 모드
+- Free public beta: $0
+- Payment flow: not active
+- Future pricing: decide only after stars, issues, real workflow attempts, and repeated user requests
 
 ## Gumroad용 짧은 CTA
-Download the starter pack, run the 10-minute diagnosis, and stop building empty AI automations.
+Download the free public beta starter pack, run the 10-minute diagnosis, and stop building empty AI automations.
 
 ## Lemon Squeezy용 상품 필드
 - Name: No-Shell Agent Operating Pack — Email & Document Automation Starter
-- Price: $29
+- Price: $0 during public beta
 - File: `dist/no-shell-agent-operating-pack-starter-v1.zip`
 - Description: Use the long description above.
 
 ## Ko-fi용 상품 필드
 - Product title: No-Shell Agent Operating Pack Starter
 - Product type: Digital download
-- Price: $29
+- Price: $0 during public beta
 - Short pitch: A plain-language AI automation operating pack for non-coders.
 
 ## 공식 플랫폼 참고
@@ -47,5 +46,4 @@ Download the starter pack, run the 10-minute diagnosis, and stop building empty 
 - Ko-fi Shop: https://help.ko-fi.com/hc/en-us/articles/360009712917-Ko-fi-Shop-Sell-digital-physical-products
 
 ## 아직 하지 말 것
-계정 생성, 결제 연결, 공개 발행, 유료 광고는 아직 하지 않는다. 먼저 20명 테스트에서 유료 신호를 본다.
-
+결제 연결, 유료 광고, 유료 업셀은 아직 하지 않는다. 먼저 무료 공개 베타로 GitHub stars, issues, workflow feedback, directory discovery를 본다.
