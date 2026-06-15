@@ -62,11 +62,12 @@ timestamp,connector,mode,allowed_scope,target_id_or_url,draft_or_staged_artifact
 2026-06-15T12:44:00Z,community,ready_for_owner_login,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,rule_check_passed_chrome_extension_disabled,no,Enable Codex Chrome Extension or manually submit after HN login
 2026-06-15T14:12:00Z,community,chrome_session_autonomy_retry,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,chrome_pages_opened_but_automation_unavailable,no,Codex Chrome Extension must be enabled and plugin native host repaired, or owner submits from the opened Chrome tab
 2026-06-15T14:15:00Z,community,owner_hn_login_completed,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,owner_logged_in_but_codex_chrome_control_still_unavailable,no,Enable/repair Codex Chrome Extension control surface or submit from opened Chrome tab
+2026-06-15T14:23:00Z,community,extension_enabled_native_host_blocker,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,codex_chrome_extension_enabled_but_native_host_registry_missing,no,Repair/reinstall Chrome plugin native host from Codex plugin UI or submit from opened Chrome tab
 ```
 
 ## Why Not Post Automatically Here
 
-The launch packet and final copy are ready. Live submission could not be completed in this run because the Codex Chrome Extension is installed but disabled, the Chrome native host registry entry is missing, and the Computer Use native pipe is unavailable in this Codex session. Codex opened the user's Chrome to the HN submit pages and the Codex extension manager, but it cannot safely press through the logged-in session without one of those control surfaces working. Do not bypass login, cookies, 2FA, or community rules.
+The launch packet and final copy are ready. Live submission could not be completed in this run because the Chrome native host registry entry is missing, and the Computer Use native pipe is unavailable in this Codex session. The Codex Chrome Extension is now enabled, but Chrome control still cannot connect until the native host is repaired by the Codex plugin UI. Codex opened the user's Chrome to the HN submit pages, the Codex extension manager, and the Codex Chrome Extension web store page, but it cannot safely press through the logged-in session without one working control surface. Do not bypass login, cookies, 2FA, or community rules.
 
 Owner path:
 
