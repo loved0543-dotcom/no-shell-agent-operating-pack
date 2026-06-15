@@ -1,5 +1,5 @@
 {
-  "collected_at": "2026-06-15T15:14:16Z",
+  "collected_at": "2026-06-15T15:26:42Z",
   "collector_status": "PASS",
   "beta_signal_status": "WARN",
   "beta_signal_reason": "collector works, but public beta demand signal is still baseline/weak",
@@ -9,13 +9,13 @@
     "repo_url": "https://github.com/loved0543-dotcom/no-shell-agent-operating-pack",
     "feedback_issue_url": "https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1",
     "errors": [],
-    "rate_limit_remaining": "59",
+    "rate_limit_remaining": "55",
     "stars": 0,
     "forks": 0,
     "watchers_alias": 0,
     "subscribers": 0,
     "open_issues": 1,
-    "pushed_at": "2026-06-15T14:31:36Z",
+    "pushed_at": "2026-06-15T15:19:31Z",
     "feedback_issue": {
       "number": 1,
       "state": "open",
@@ -31,8 +31,8 @@
     "origin": "https://ai-automation-operating-pack.vercel.app",
     "errors": [],
     "health_ok": true,
-    "health_version": "0.1.1",
-    "server_version": "0.1.1",
+    "health_version": "0.1.2",
+    "server_version": "0.1.2",
     "remote_url": "https://ai-automation-operating-pack.vercel.app/api/mcp"
   },
   "registry": {
@@ -41,7 +41,7 @@
     "server_name": "io.github.loved0543-dotcom/no-shell-agent-architect-mcp",
     "found": true,
     "is_latest": true,
-    "version": "0.1.1",
+    "version": "0.1.2",
     "remote_url": "https://ai-automation-operating-pack.vercel.app/api/mcp",
     "errors": []
   },

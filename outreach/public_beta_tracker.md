@@ -36,13 +36,13 @@ Do not add a payment flow during public beta. Future paid packaging should wait 
 <!-- AUTO_PUBLIC_BETA_SIGNALS_START -->
 ## Latest Automated Snapshot
 
-- collected_at: `2026-06-15T15:14:16Z`
+- collected_at: `2026-06-15T15:26:42Z`
 - collector_status: `PASS`
 - beta_signal_status: `WARN` - collector works, but public beta demand signal is still baseline/weak
 - GitHub: stars `0`, forks `0`, subscribers/watchers `0`, open issues `1`
 - Feedback issue: `#1` `open`, comments `0`
-- Live health: `ok`, ok `True`, version `0.1.1`, remote `https://ai-automation-operating-pack.vercel.app/api/mcp`
-- MCP Registry: `ok`, found `True`, latest `True`, version `0.1.1`
+- Live health: `ok`, ok `True`, version `0.1.2`, remote `https://ai-automation-operating-pack.vercel.app/api/mcp`
+- MCP Registry: `ok`, found `True`, latest `True`, version `0.1.2`
 - Boundary: public read-only collection only; no account login, secret, paid API, payment change, or public posting.
 
 ### Feedback Issue Comments
