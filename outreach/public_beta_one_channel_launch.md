@@ -7,7 +7,7 @@ Start with one staged public feedback post, not a multi-channel blast.
 - Target channel: Hacker News `Show HN`
 - Status: `ready_for_owner_login`
 - Reason: the product is a working public URL and open-source MCP/API, but the account login and final live submission belong to the owner.
-- Live boundary: post only through the user's logged-in HN session after final title/body approval. Do not bypass login, cookies, 2FA, or HN rules.
+- Live boundary: post only through the user's logged-in HN session with the staged title/body below. Do not bypass login, cookies, 2FA, or HN rules.
 
 ## Preflight
 
@@ -60,16 +60,17 @@ I would like feedback on two things:
 timestamp,connector,mode,allowed_scope,target_id_or_url,draft_or_staged_artifact,validation_result,live_action_sent,remaining_human_step
 2026-06-15T12:25:00Z,community,staged_draft,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,staged_not_posted,no,Owner logs in to HN and approves final title/body before submit
 2026-06-15T12:44:00Z,community,ready_for_owner_login,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,rule_check_passed_chrome_extension_disabled,no,Enable Codex Chrome Extension or manually submit after HN login
+2026-06-15T14:12:00Z,community,chrome_session_autonomy_retry,Hacker News Show HN,https://news.ycombinator.com/submit,outreach/public_beta_one_channel_launch.md,chrome_pages_opened_but_automation_unavailable,no,Codex Chrome Extension must be enabled and plugin native host repaired, or owner submits from the opened Chrome tab
 ```
 
 ## Why Not Post Automatically Here
 
-The launch packet and final copy are ready. Live submission could not be completed in this run because the Codex Chrome Extension is installed but disabled, so Codex cannot use the user's logged-in Chrome session. The public HN submit page also requires login. Do not bypass login, cookies, 2FA, or community rules.
+The launch packet and final copy are ready. Live submission could not be completed in this run because the Codex Chrome Extension is installed but disabled, the Chrome native host registry entry is missing, and the Computer Use native pipe is unavailable in this Codex session. Codex opened the user's Chrome to the HN submit pages and the Codex extension manager, but it cannot safely press through the logged-in session without one of those control surfaces working. Do not bypass login, cookies, 2FA, or community rules.
 
 Owner path:
 
-1. Enable the Codex Chrome Extension in Chrome, then ask Codex to continue the HN submit step; or
-2. Manually open https://news.ycombinator.com/submit after logging in and paste the title/body above.
+1. Enable the Codex Chrome Extension in Chrome and reinstall/repair the Codex Chrome plugin from the Codex plugin UI if native-host communication still fails, then ask Codex to continue the HN submit step; or
+2. Use the Chrome tabs already opened by Codex and paste the title/body above after logging in.
 
 After posting, run:
 
