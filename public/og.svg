@@ -1,0 +1,23 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  <rect x="62" y="58" width="1076" height="514" rx="28" fill="white" stroke="#D8E0EA" stroke-width="2"/>
+  <text x="108" y="132" fill="#0F766E" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="2">REMOTE MCP + API</text>
+  <text x="108" y="218" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="900">No-Shell Agent</text>
+  <text x="108" y="298" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="900">Architect MCP</text>
+  <text x="108" y="370" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="30">Turn “automate this” into a real workflow:</text>
+  <text x="108" y="416" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="30">tool stack, prompt, dry-run, QA, boundary.</text>
+  <rect x="108" y="468" width="470" height="54" rx="12" fill="#155EEF"/>
+  <text x="132" y="504" fill="white" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">no-shell-agent-architect-mcp.vercel.app</text>
+  <g transform="translate(742 150)">
+    <rect width="284" height="310" rx="20" fill="#0F172A"/>
+    <rect x="24" y="30" width="124" height="14" rx="7" fill="#22C55E"/>
+    <rect x="24" y="64" width="214" height="12" rx="6" fill="#94A3B8"/>
+    <rect x="24" y="96" width="184" height="12" rx="6" fill="#94A3B8"/>
+    <rect x="24" y="142" width="236" height="54" rx="10" fill="#1E293B"/>
+    <rect x="44" y="162" width="90" height="12" rx="6" fill="#60A5FA"/>
+    <rect x="44" y="182" width="170" height="8" rx="4" fill="#CBD5E1"/>
+    <rect x="24" y="218" width="236" height="54" rx="10" fill="#1E293B"/>
+    <rect x="44" y="238" width="130" height="12" rx="6" fill="#2DD4BF"/>
+    <rect x="44" y="258" width="160" height="8" rx="4" fill="#CBD5E1"/>
+  </g>
+</svg>

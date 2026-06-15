@@ -36,6 +36,18 @@ Remote MCP endpoint after deployment:
 https://no-shell-agent-architect-mcp.vercel.app/api/mcp
 ```
 
+Live demo:
+
+```text
+https://no-shell-agent-architect-mcp.vercel.app
+```
+
+Launch kit:
+
+```text
+https://no-shell-agent-architect-mcp.vercel.app/launch
+```
+
 Official MCP Registry:
 
 ```text
@@ -110,6 +122,10 @@ PASS mcp product selfcheck
 ```
 
 The selfcheck verifies required files, rendered PDF/PNG artifacts, ZIP contents, landing copy, README/manifest, validation-tracker fields, MCP metadata, tool coverage, and secret-pattern safety.
+
+## Marketing
+
+Launch copy, community drafts, Product Hunt copy, Show HN copy, Reddit/LinkedIn/X drafts, and directory submission text live in `docs/LAUNCH_KIT.md`.
 
 ## Current status
 

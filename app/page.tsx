@@ -8,6 +8,7 @@ export default function Page() {
           <strong>No-Shell Agent Architect</strong>
           <span>
             <a href="/api/health">Health</a>
+            <a href="/launch">Launch</a>
             <a href="/server.json">server.json</a>
             <a href="https://github.com/loved0543-dotcom/no-shell-agent-operating-pack">GitHub</a>
           </span>
@@ -21,6 +22,7 @@ export default function Page() {
           </p>
           <div className="cta-row">
             <a className="button" href="#architect">Try the architect</a>
+            <a className="button secondary" href="/launch">Launch kit</a>
             <code>https://no-shell-agent-architect-mcp.vercel.app/api/mcp</code>
           </div>
         </section>

@@ -2,6 +2,22 @@
   "name": "no-shell-agent-architect-mcp",
   "version": "0.1.0",
   "private": true,
+  "description": "Remote MCP/API that turns vague automation requests into tool stacks, prompts, QA checks, and human boundaries.",
+  "homepage": "https://no-shell-agent-architect-mcp.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loved0543-dotcom/no-shell-agent-operating-pack.git"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai-automation",
+    "agent-workflow",
+    "prompt-engineering",
+    "codex",
+    "claude",
+    "chatgpt"
+  ],
   "type": "module",
   "scripts": {
     "dev": "next dev",

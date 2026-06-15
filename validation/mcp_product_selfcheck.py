@@ -20,6 +20,12 @@ REQUIRED = [
     "server.json",
     "public/server.json",
     "public/llms.txt",
+    "public/og.svg",
+    "app/robots.ts",
+    "app/sitemap.ts",
+    "app/launch/page.tsx",
+    "app/show-hn/page.tsx",
+    "docs/LAUNCH_KIT.md",
     "docs/_evidence/no-shell-agent-architect-mcp.md",
     "docs/MCP_REGISTRATION.md",
     "tests/architect.test.ts",
@@ -56,6 +62,14 @@ NEEDLES = {
     "README.md": [
         "No-Shell Agent Architect MCP",
         "/api/mcp",
+        "docs/LAUNCH_KIT.md",
+    ],
+    "docs/LAUNCH_KIT.md": [
+        "Product Hunt Draft",
+        "Show HN Draft",
+        "Reddit / Community Draft",
+        "LinkedIn Draft",
+        "Directory Submission Copy",
     ],
 }
 
