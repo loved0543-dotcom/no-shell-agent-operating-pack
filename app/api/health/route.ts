@@ -4,7 +4,7 @@ export function GET() {
   return NextResponse.json({
     ok: true,
     service: 'no-shell-agent-architect-mcp',
-    version: '0.1.0',
+    version: '0.1.1',
     tools: [
       'design_automation_stack',
       'generate_no_shell_prompt',

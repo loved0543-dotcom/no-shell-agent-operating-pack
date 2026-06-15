@@ -103,7 +103,7 @@ const handler = createMcpHandler(
   {
     serverInfo: {
       name: 'no-shell-agent-architect-mcp',
-      version: '0.1.0'
+      version: '0.1.1'
     }
   },
   {
