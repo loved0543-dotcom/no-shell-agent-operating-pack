@@ -84,7 +84,11 @@ def collect_github() -> dict[str, Any]:
     api_root = f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}"
     repo, repo_headers, repo_error = fetch_json(api_root)
     issue, _, issue_error = fetch_json(f"{api_root}/issues/{FEEDBACK_ISSUE}")
-    comments, _, comments_error = fetch_json(f"{api_root}/issues/{FEEDBACK_ISSUE}/comments?per_page=100")
+    comments = None
+    comments_error = None
+    issue_comment_count = issue.get("comments", 0) if isinstance(issue, dict) else 0
+    if issue_comment_count:
+        comments, _, comments_error = fetch_json(f"{api_root}/issues/{FEEDBACK_ISSUE}/comments?per_page=100")
 
     result: dict[str, Any] = {
         "status": "ok",
