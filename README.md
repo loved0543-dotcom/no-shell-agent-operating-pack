@@ -50,6 +50,12 @@ Launch kit:
 https://ai-automation-operating-pack.vercel.app/launch
 ```
 
+Public beta feedback:
+
+```text
+https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1
+```
+
 Official MCP Registry:
 
 ```text
@@ -115,6 +121,7 @@ Client config:
 - Workbench ZIP: `dist/no-shell-agent-operating-pack-workbench-v1.zip`
 - Validation tracker: `outreach/validation_tracker.csv`
 - Public beta tracker: `outreach/public_beta_tracker.csv`
+- Public feedback issue: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1
 
 ## Validation
 

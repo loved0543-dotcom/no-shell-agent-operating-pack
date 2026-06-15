@@ -63,3 +63,5 @@ python validation/check_live_contract.py
 Launch drafts are in `docs/LAUNCH_KIT.md`. Current launch mode is free public beta: no payment flow, storefront, paid API, or account collection. Codex may prepare copy and verify links, but public posting to Product Hunt, Hacker News, Reddit, LinkedIn, or X must be done by the logged-in owner account after checking each community's rules.
 
 Track public signals in `outreach/public_beta_tracker.csv`: stars, issues, comments, shares, real workflow examples, and repeated objections.
+
+Main public feedback thread: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1

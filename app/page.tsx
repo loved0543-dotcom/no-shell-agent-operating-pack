@@ -22,7 +22,8 @@ export default function Page() {
           </p>
           <div className="cta-row">
             <a className="button" href="#architect">Try the architect</a>
-            <a className="button secondary" href="https://github.com/loved0543-dotcom/no-shell-agent-operating-pack">Star / feedback</a>
+            <a className="button secondary" href="https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1">Feedback issue</a>
+            <a className="button secondary" href="https://github.com/loved0543-dotcom/no-shell-agent-operating-pack">Star on GitHub</a>
             <a className="button secondary" href="/launch">Launch kit</a>
             <code>https://ai-automation-operating-pack.vercel.app/api/mcp</code>
           </div>

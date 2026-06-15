@@ -4,6 +4,8 @@
 
 Track whether the free public beta attracts real interest before any paid packaging is considered.
 
+Main public feedback thread: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1
+
 ## What To Track
 
 - GitHub stars, watchers, forks, and issue activity.

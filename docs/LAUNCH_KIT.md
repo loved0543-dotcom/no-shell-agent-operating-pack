@@ -14,6 +14,8 @@ GitHub: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
 Registry: https://registry.modelcontextprotocol.io/v0/servers?search=no-shell-agent-architect-mcp
 
+Public beta feedback issue: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1
+
 Compatibility URL for old shared links only: https://no-shell-agent-architect-mcp.vercel.app
 
 Use the canonical URL in every new post, directory listing, screenshot, and client config.
@@ -225,6 +227,7 @@ Do not auto-post from automation. These links require the owner's logged-in acco
 
 - GitHub stars and watchers
 - GitHub issues with real workflow examples
+- Feedback issue comments: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1
 - Registry/directory discovery
 - People who try the MCP endpoint and ask for another domain
 - Repeated objections: too abstract, hard to connect, unclear output, missing domain coverage

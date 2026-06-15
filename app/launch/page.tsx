@@ -1,4 +1,5 @@
 const endpoint = 'https://ai-automation-operating-pack.vercel.app/api/mcp';
+const feedbackIssue = 'https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues/1';
 
 export const metadata = {
   title: 'Launch Kit - No-Shell Agent Architect MCP',
@@ -19,7 +20,7 @@ export default function LaunchPage() {
         <div className="cta-row">
           <a className="button" href="/">Try the live architect</a>
           <a className="button secondary" href="https://github.com/loved0543-dotcom/no-shell-agent-operating-pack">GitHub</a>
-          <a className="button secondary" href="https://github.com/loved0543-dotcom/no-shell-agent-operating-pack/issues">Feedback</a>
+          <a className="button secondary" href={feedbackIssue}>Feedback</a>
         </div>
       </section>
 
