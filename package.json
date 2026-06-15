@@ -24,7 +24,8 @@
     "build": "next build",
     "start": "next start",
     "test": "vitest run",
-    "selfcheck": "python validation/package_selfcheck.py && python validation/mcp_product_selfcheck.py"
+    "selfcheck": "python validation/package_selfcheck.py && python validation/mcp_product_selfcheck.py",
+    "check:live": "python validation/check_live_contract.py"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",

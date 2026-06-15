@@ -30,7 +30,7 @@ Then open:
 http://localhost:3000
 ```
 
-Remote MCP endpoint after deployment:
+Canonical remote MCP endpoint:
 
 ```text
 https://ai-automation-operating-pack.vercel.app/api/mcp
@@ -53,6 +53,14 @@ Official MCP Registry:
 ```text
 https://registry.modelcontextprotocol.io/v0/servers?search=no-shell-agent-architect-mcp
 ```
+
+Compatibility URL:
+
+```text
+https://no-shell-agent-architect-mcp.vercel.app
+```
+
+The compatibility URL is kept for old shared links only. New docs, client config, and registry metadata should use `https://ai-automation-operating-pack.vercel.app`.
 
 Client config:
 
@@ -123,9 +131,23 @@ PASS mcp product selfcheck
 
 The selfcheck verifies required files, rendered PDF/PNG artifacts, ZIP contents, landing copy, README/manifest, validation-tracker fields, MCP metadata, tool coverage, and secret-pattern safety.
 
+After production deploys, verify the live contract:
+
+```powershell
+npm run check:live
+```
+
+This checks the canonical URL, compatibility URL, MCP `tools/list`, and the official Registry latest entry.
+
 ## Marketing
 
 Launch copy, community drafts, Product Hunt copy, Show HN copy, Reddit/LinkedIn/X drafts, and directory submission text live in `docs/LAUNCH_KIT.md`.
+
+Public posting is intentionally manual. Use the drafts, then post from the owner's logged-in account after checking each community's rules.
+
+## Operations
+
+Deployment, monitoring, compatibility alias recovery, and post-deploy checks are documented in `docs/OPERATIONS.md`.
 
 ## Current status
 

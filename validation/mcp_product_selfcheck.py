@@ -26,8 +26,11 @@ REQUIRED = [
     "app/launch/page.tsx",
     "app/show-hn/page.tsx",
     "docs/LAUNCH_KIT.md",
+    "docs/OPERATIONS.md",
     "docs/_evidence/no-shell-agent-architect-mcp.md",
     "docs/MCP_REGISTRATION.md",
+    ".github/workflows/monitor-production.yml",
+    "validation/check_live_contract.py",
     "tests/architect.test.ts",
 ]
 
@@ -70,6 +73,17 @@ NEEDLES = {
         "Reddit / Community Draft",
         "LinkedIn Draft",
         "Directory Submission Copy",
+        "Pre-Post Verification",
+    ],
+    "docs/OPERATIONS.md": [
+        "Canonical endpoints",
+        "Compatibility alias recovery",
+        "Monitor Production Contract",
+        "Launch boundary",
+    ],
+    ".github/workflows/monitor-production.yml": [
+        "Monitor Production Contract",
+        "validation/check_live_contract.py",
     ],
 }
 

@@ -10,7 +10,11 @@ https://ai-automation-operating-pack.vercel.app/api/mcp
 
 ## Registry status
 
-Published to the official MCP Registry through GitHub Actions OIDC.
+Published to the official MCP Registry through GitHub Actions OIDC. The latest registered version should match `package.json` and point to:
+
+```text
+https://ai-automation-operating-pack.vercel.app/api/mcp
+```
 
 Registry search:
 
@@ -63,3 +67,15 @@ https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
 Remote:
 https://ai-automation-operating-pack.vercel.app/api/mcp
+
+## Live verification
+
+Before sending the endpoint to a directory or reviewer:
+
+```powershell
+npm run check:live
+```
+
+This verifies the canonical endpoint, compatibility alias, MCP `tools/list`, and official Registry latest entry.
+
+The old compatibility URL `https://no-shell-agent-architect-mcp.vercel.app` may be used only for previously shared links. New submissions should use the canonical `ai-automation-operating-pack.vercel.app` URL.

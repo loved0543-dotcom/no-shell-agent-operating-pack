@@ -12,6 +12,10 @@ GitHub: https://github.com/loved0543-dotcom/no-shell-agent-operating-pack
 
 Registry: https://registry.modelcontextprotocol.io/v0/servers?search=no-shell-agent-architect-mcp
 
+Compatibility URL for old shared links only: https://no-shell-agent-architect-mcp.vercel.app
+
+Use the canonical URL in every new post, directory listing, screenshot, and client config.
+
 ## Positioning
 
 Most agent automation fails before the first tool call. The user says "automate this", and the agent builds files or UI that look done but do not complete the real workflow.
@@ -170,11 +174,29 @@ Demo: https://ai-automation-operating-pack.vercel.app
 - [x] robots.txt and sitemap.xml
 - [x] `/launch` page
 - [x] `/show-hn` page
+- [x] GitHub-to-Vercel production auto-deploy
+- [x] Compatibility alias refreshed for old links
+- [x] Production contract monitor workflow
 - [ ] Product Hunt post by logged-in maker
 - [ ] Hacker News Show HN post by logged-in account
 - [ ] Reddit/community posts only where rules allow self-promotion
 - [ ] LinkedIn/X post by owner account
 - [ ] Glama/Smithery/PulseMCP listing check or submission
+
+## Pre-Post Verification
+
+Run this before sending people to the product:
+
+```powershell
+npm run check:live
+```
+
+Expected:
+
+- canonical `/api/health` returns the current version;
+- compatibility URL is not stale;
+- `/api/mcp` returns all six tools;
+- official MCP Registry latest points to `https://ai-automation-operating-pack.vercel.app/api/mcp`.
 
 ## Posting Rules Checked
 
@@ -187,3 +209,5 @@ Demo: https://ai-automation-operating-pack.vercel.app
 - Hacker News submit: https://news.ycombinator.com/submit
 - Product Hunt launch: https://www.producthunt.com/launch
 - Reddit: choose the exact subreddit first and read its rules before posting.
+
+Do not auto-post from automation. These links require the owner's logged-in account and a final community-rule check.
